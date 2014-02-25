@@ -1,13 +1,13 @@
-package competitionsys;
+package competitionsys.gui.actionpanels;
 
 /**
  *
  * @author Michael
  */
-public class NextMatchPanel extends javax.swing.JPanel {
+public class ScoutingInfo extends javax.swing.JPanel {
 
-    /** Creates new form NextMatchPanel */
-    public NextMatchPanel() {
+    /** Creates new form ScoutingInfo */
+    public ScoutingInfo() {
         initComponents();
     }
 
