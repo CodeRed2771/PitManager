@@ -9,23 +9,37 @@ import java.util.ArrayList;
  */
 public class Competition implements Serializable {
 
-    private static ArrayList<Match> matches;
-    private static ArrayList<Battery> batteries;
+    private static Competition competition = null;
+    private ArrayList<Match> matches;
+    private ArrayList<Battery> batteries;
 
-    public Competition() {
+    private Competition() {
         matches = new ArrayList<>();
         batteries = new ArrayList<>();
     }
 
-    public static void addMatch(Match match) {
+    public static Competition getInstance() {
+        if (competition == null) {
+            competition = new Competition();
+        }
+        return competition;
+    }
+    
+    public static void setInstance(Competition newCompetition) {
+        if (competition == null){
+            competition = newCompetition;
+        }
+    }
+
+    public void addMatch(Match match) {
         matches.add(match);
     }
 
-    public static Match getMatchByIndex(int index) {
+    public Match getMatchByIndex(int index) {
         return matches.get(index);
     }
 
-    public static Match getMatch(int matchNumber) {
+    public Match getMatch(int matchNumber) {
         for (Match match : matches) {
             if (match.getMatchNumber() == matchNumber) {
                 return match;
@@ -34,15 +48,15 @@ public class Competition implements Serializable {
         return null;
     }
 
-    public static void removeMatchByIndex(int index) {
+    public void removeMatchByIndex(int index) {
         matches.remove(index);
     }
 
-    public static void removeMatch(Match match) {
+    public void removeMatch(Match match) {
         matches.remove(match);
     }
 
-    public static void removeMatch(int matchNumber) {
+    public void removeMatch(int matchNumber) {
         for (Match match : matches) {
             if (match.getMatchNumber() == matchNumber) {
                 matches.remove(match);
@@ -51,15 +65,15 @@ public class Competition implements Serializable {
         }
     }
 
-    public static void addBattery(Battery match) {
+    public void addBattery(Battery match) {
         batteries.add(match);
     }
 
-    public static Battery getBattery(int index) {
+    public Battery getBattery(int index) {
         return batteries.get(index);
     }
 
-    public static Battery getBattery(String batteryLabel) {
+    public Battery getBattery(String batteryLabel) {
         for (Battery battery : batteries) {
             if (battery.getBatteryLabel().equals(batteryLabel)) {
                 return battery;
@@ -68,15 +82,15 @@ public class Competition implements Serializable {
         return null;
     }
 
-    public static void removeBatteryByIndex(int index) {
+    public void removeBatteryByIndex(int index) {
         batteries.remove(index);
     }
 
-    public static void removeBattery(Battery battery) {
+    public void removeBattery(Battery battery) {
         batteries.remove(battery);
     }
 
-    public static void removeBattery(String batteryLabel) {
+    public void removeBattery(String batteryLabel) {
         for (Battery battery : batteries) {
             if (battery.getBatteryLabel().equals(batteryLabel)) {
                 batteries.remove(battery);
