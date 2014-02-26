@@ -1,30 +1,31 @@
 package competitionsys.persistence;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Michael
  */
-public class Competition {
+public class Competition implements Serializable {
 
-    ArrayList<Match> matches;
-    ArrayList<Battery> batteries;
+    private static ArrayList<Match> matches;
+    private static ArrayList<Battery> batteries;
 
     public Competition() {
         matches = new ArrayList<>();
         batteries = new ArrayList<>();
     }
 
-    public void addMatch(Match match) {
+    public static void addMatch(Match match) {
         matches.add(match);
     }
 
-    public Match getMatchByIndex(int index) {
+    public static Match getMatchByIndex(int index) {
         return matches.get(index);
     }
 
-    public Match getMatch(int matchNumber) {
+    public static Match getMatch(int matchNumber) {
         for (Match match : matches) {
             if (match.getMatchNumber() == matchNumber) {
                 return match;
@@ -33,15 +34,15 @@ public class Competition {
         return null;
     }
 
-    public void removeMatchByIndex(int index) {
+    public static void removeMatchByIndex(int index) {
         matches.remove(index);
     }
 
-    public void removeMatch(Match match) {
+    public static void removeMatch(Match match) {
         matches.remove(match);
     }
 
-    public void removeMatch(int matchNumber) {
+    public static void removeMatch(int matchNumber) {
         for (Match match : matches) {
             if (match.getMatchNumber() == matchNumber) {
                 matches.remove(match);
@@ -50,15 +51,15 @@ public class Competition {
         }
     }
 
-    public void addBattery(Battery match) {
+    public static void addBattery(Battery match) {
         batteries.add(match);
     }
 
-    public Battery getBattery(int index) {
+    public static Battery getBattery(int index) {
         return batteries.get(index);
     }
 
-    public Battery getBattery(String batteryLabel) {
+    public static Battery getBattery(String batteryLabel) {
         for (Battery battery : batteries) {
             if (battery.getBatteryLabel().equals(batteryLabel)) {
                 return battery;
@@ -67,15 +68,15 @@ public class Competition {
         return null;
     }
 
-    public void removeBatteryByIndex(int index) {
+    public static void removeBatteryByIndex(int index) {
         batteries.remove(index);
     }
 
-    public void removeBattery(Battery battery) {
+    public static void removeBattery(Battery battery) {
         batteries.remove(battery);
     }
 
-    public void removeBattery(String batteryLabel) {
+    public static void removeBattery(String batteryLabel) {
         for (Battery battery : batteries) {
             if (battery.getBatteryLabel().equals(batteryLabel)) {
                 batteries.remove(battery);
