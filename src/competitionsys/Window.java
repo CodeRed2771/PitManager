@@ -43,6 +43,7 @@ public class Window extends javax.swing.JFrame {
 
         container = new javax.swing.JPanel();
         chatGUI1 = new competitionsys.chat.ChatGUI();
+        matchSchedulePanel1 = new competitionsys.gui.MatchSchedulePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Pit Manager");
@@ -52,6 +53,8 @@ public class Window extends javax.swing.JFrame {
 
         chatGUI1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
 
+        matchSchedulePanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
         container.setLayout(containerLayout);
         containerLayout.setHorizontalGroup(
@@ -59,13 +62,17 @@ public class Window extends javax.swing.JFrame {
             .addGroup(containerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(chatGUI1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(matchSchedulePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+                .addContainerGap())
         );
         containerLayout.setVerticalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerLayout.createSequentialGroup()
-                .addContainerGap(185, Short.MAX_VALUE)
-                .addComponent(chatGUI1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(260, Short.MAX_VALUE)
+                .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(matchSchedulePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chatGUI1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -103,5 +110,6 @@ public class Window extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private competitionsys.chat.ChatGUI chatGUI1;
     private javax.swing.JPanel container;
+    private competitionsys.gui.MatchSchedulePanel matchSchedulePanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class FileIO {
 
     public static void writeMemory(String path) {
-        try (FileOutputStream fileOut = new FileOutputStream(path);
+        try (FileOutputStream fileOut = new FileOutputStream(("".equals(path) ? "pitmanager" : path));
                 ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(Competition.getInstance());
             out.close();
@@ -27,7 +27,7 @@ public class FileIO {
 
     public static void readMemoryIn(String path) {
         try {
-            try (FileInputStream fileIn = new FileInputStream("/tmp/employee.ser"); 
+            try (FileInputStream fileIn = new FileInputStream(("".equals(path) ? "pitmanager" : path)); 
                     ObjectInputStream in = new ObjectInputStream(fileIn)) {
                 Competition.setInstance((Competition) in.readObject());
             }
