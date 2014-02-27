@@ -1,5 +1,7 @@
 package competitionsys.gui;
 
+import competitionsys.persistence.Competition;
+
 /**
  *
  * @author Michael
@@ -7,11 +9,14 @@ package competitionsys.gui;
 public class MatchSchedulePanel extends javax.swing.JPanel {
 
     int page = 1;
+    int maxpages;
     
     /** Creates new form MatchSchedulePanel */
     public MatchSchedulePanel() {
         initComponents();
         refresh();
+        
+        maxpages = (int) (Math.ceil(Competition.getInstance().getNumberOfMatches() / 13.0d));
     }
     
     public void refresh(){
@@ -65,9 +70,19 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
 
         pageUpButton.setBackground(new java.awt.Color(0, 0, 0));
         pageUpButton.setText("↑");
+        pageUpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pageUpButtonActionPerformed(evt);
+            }
+        });
 
         pageDownButton.setBackground(new java.awt.Color(0, 0, 0));
         pageDownButton.setText("↓");
+        pageDownButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pageDownButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -149,6 +164,20 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pageUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pageUpButtonActionPerformed
+        if (page > 1){
+            page--;
+            refresh();
+        }
+    }//GEN-LAST:event_pageUpButtonActionPerformed
+
+    private void pageDownButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pageDownButtonActionPerformed
+        if (page < maxpages){
+            page++;
+            refresh();
+        }
+    }//GEN-LAST:event_pageDownButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

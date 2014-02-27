@@ -24,9 +24,9 @@ public class Competition implements Serializable {
         }
         return competition;
     }
-    
+
     public static void setInstance(Competition newCompetition) {
-        if (competition == null){
+        if (competition == null) {
             competition = newCompetition;
         }
     }
@@ -65,6 +65,10 @@ public class Competition implements Serializable {
         }
     }
 
+    public int getNumberOfMatches() {
+        return matches.size();
+    }
+
     public void addBattery(Battery match) {
         batteries.add(match);
     }
@@ -97,5 +101,9 @@ public class Competition implements Serializable {
                 return;
             }
         }
+    }
+    
+    public int getNumberOfBatteries(){
+        return batteries.size();
     }
 }

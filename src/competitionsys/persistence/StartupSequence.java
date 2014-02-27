@@ -23,9 +23,15 @@ public class StartupSequence {
                 ReadCSV.readCSVFile("batteries.csv", ReadCSV.BATTERIES);
                 FileIO.writeMemory("pitmanager");
             } else {
-                JOptionPane.showMessageDialog(new JPanel(), "The Pit Manager cannot find a serialized"
-                        + "\ncompetition file.  When looking for the\nmatches and"
-                        + " batteries CSV files, one or\nboth of them were missing", "No Information", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(new JPanel(), 
+                        "The Pit Manager couldn't find a serialized competition file."
+                        + "\nThis may be because no information has ever been imported."
+                        + "\n\nThe Pit Manager could not find the required files to"
+                        + "\nsuccessfully import the information for a new competition."
+                        + "\nOne or both of the required CSV files may be missing.  "
+                        + "\nPlease create both a matches.csv and a batteries.csv file"
+                        + "\nand place them in this directory.  ", "No Information", JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
             }
         }
     }
