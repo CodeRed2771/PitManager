@@ -6,9 +6,16 @@ package competitionsys.gui;
  */
 public class MatchSchedulePanel extends javax.swing.JPanel {
 
+    int page = 1;
+    
     /** Creates new form MatchSchedulePanel */
     public MatchSchedulePanel() {
         initComponents();
+        refresh();
+    }
+    
+    public void refresh(){
+        
     }
 
     /** This method is called from within the constructor to

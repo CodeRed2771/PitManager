@@ -5,15 +5,31 @@ package competitionsys.persistence;
  * @author Michael
  */
 public class Match {
+
     private int matchNumber;
+    private String matchTime;
     
     private int blueStation1;
     private int blueStation2;
     private int blueStation3;
-    
+
     private int redStation1;
     private int redStation2;
     private int redStation3;
+    
+    private String batteryLetter;
+
+    public Match(int matchNumber, int blueStation1, int blueStation2, int blueStation3, int redStation1, int redStation2, int redStation3, String batteryLetter, String matchTime) {
+        this.matchNumber = matchNumber;
+        this.blueStation1 = blueStation1;
+        this.blueStation2 = blueStation2;
+        this.blueStation3 = blueStation3;
+        this.redStation1 = redStation1;
+        this.redStation2 = redStation2;
+        this.redStation3 = redStation3;
+        this.batteryLetter = batteryLetter;
+        this.matchTime = matchTime;
+    }
 
     public int getMatchNumber() {
         return matchNumber;
@@ -69,5 +85,21 @@ public class Match {
 
     public void setRedStation3(int redStation3) {
         this.redStation3 = redStation3;
+    }
+
+    public String getMatchTime() {
+        return matchTime;
+    }
+
+    public void setMatchTime(String matchTime) {
+        this.matchTime = matchTime;
+    }
+
+    public String getBatteryLetter() {
+        return batteryLetter;
+    }
+
+    public void setBatteryLetter(String batteryLetter) {
+        this.batteryLetter = batteryLetter;
     }
 }

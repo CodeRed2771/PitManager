@@ -20,22 +20,16 @@ public class ActionPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        batteries = new competitionsys.gui.actionpanels.Batteries();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 361, Short.MAX_VALUE)
-        );
+        setBackground(new java.awt.Color(0, 0, 0));
+        setLayout(new java.awt.CardLayout());
+        add(batteries, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private competitionsys.gui.actionpanels.Batteries batteries;
     // End of variables declaration//GEN-END:variables
 
 }

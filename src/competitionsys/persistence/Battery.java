@@ -9,6 +9,12 @@ public class Battery {
     private String batteryDescription;
     private String batteryStatus;
 
+    public Battery(String batteryLabel, String batteryDescription, String batteryStatus) {
+        this.batteryLabel = batteryLabel;
+        this.batteryDescription = batteryDescription;
+        this.batteryStatus = batteryStatus;
+    }
+
     public String getBatteryLabel() {
         return batteryLabel;
     }
