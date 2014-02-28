@@ -1,5 +1,6 @@
 package competitionsys;
 
+import competitionsys.persistence.FileIO;
 import competitionsys.persistence.ReadCSV;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -30,8 +31,9 @@ public class Window extends javax.swing.JFrame {
         this.setLocation(x, y);
         //</editor-fold>
         
+        nextMatchPanel1.refresh();
+        
         setupCloseListener();
-        ReadCSV.readCSVFile("book1.csv", 0);
     }
 
     /**
@@ -45,9 +47,9 @@ public class Window extends javax.swing.JFrame {
 
         container = new javax.swing.JPanel();
         chatGUI1 = new competitionsys.chat.ChatGUI();
-        matchSchedulePanel1 = new competitionsys.gui.MatchSchedulePanel();
         nextMatchPanel1 = new competitionsys.gui.NextMatchPanel();
         actionPanel2 = new competitionsys.gui.ActionPanel();
+        matchSchedulePanel2 = new competitionsys.gui.MatchSchedulePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Pit Manager");
@@ -57,9 +59,9 @@ public class Window extends javax.swing.JFrame {
 
         chatGUI1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
 
-        matchSchedulePanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-
         actionPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        matchSchedulePanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
 
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
         container.setLayout(containerLayout);
@@ -72,8 +74,8 @@ public class Window extends javax.swing.JFrame {
                     .addComponent(nextMatchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(matchSchedulePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(actionPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE))
+                    .addComponent(actionPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+                    .addComponent(matchSchedulePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         containerLayout.setVerticalGroup(
@@ -87,8 +89,8 @@ public class Window extends javax.swing.JFrame {
                         .addComponent(chatGUI1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(containerLayout.createSequentialGroup()
                         .addComponent(actionPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(matchSchedulePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(8, 8, 8)
+                        .addComponent(matchSchedulePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -113,6 +115,7 @@ public class Window extends javax.swing.JFrame {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 int close = JOptionPane.showConfirmDialog(gui, "Are you sure you want to close?", "Confirm Close", JOptionPane.YES_NO_OPTION);
                 if (close == 0) {
+                    FileIO.writeMemory("pitmanager");
                     System.exit(0);
                 }
             }
@@ -127,7 +130,7 @@ public class Window extends javax.swing.JFrame {
     private competitionsys.gui.ActionPanel actionPanel2;
     private competitionsys.chat.ChatGUI chatGUI1;
     private javax.swing.JPanel container;
-    private competitionsys.gui.MatchSchedulePanel matchSchedulePanel1;
+    private competitionsys.gui.MatchSchedulePanel matchSchedulePanel2;
     private competitionsys.gui.NextMatchPanel nextMatchPanel1;
     // End of variables declaration//GEN-END:variables
 }

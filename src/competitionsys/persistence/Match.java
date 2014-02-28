@@ -1,10 +1,12 @@
 package competitionsys.persistence;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Michael
  */
-public class Match {
+public class Match implements Serializable {
 
     private int matchNumber;
     private String matchTime;
@@ -101,5 +103,18 @@ public class Match {
 
     public void setBatteryLetter(String batteryLetter) {
         this.batteryLetter = batteryLetter;
+    }
+    
+    public boolean searchFor(int team){
+        if (blueStation1 == team) {
+        } else if (blueStation2 == team) {
+        } else if (blueStation3 == team) {
+        } else if (redStation1 == team) {
+        } else if (redStation2 == team) {
+        } else if (redStation3 == team) {
+        } else {
+            return false;
+        }
+        return true;
     }
 }

@@ -48,6 +48,11 @@ public class Competition implements Serializable {
         return null;
     }
 
+    public ArrayList<Match> getMatches() {
+        ArrayList<Match> ret = matches;
+        return ret;
+    }
+
     public void removeMatchByIndex(int index) {
         matches.remove(index);
     }
@@ -102,8 +107,13 @@ public class Competition implements Serializable {
             }
         }
     }
-    
-    public int getNumberOfBatteries(){
+
+    public int getNumberOfBatteries() {
         return batteries.size();
+    }
+
+    public ArrayList<Battery> getBatteries() {
+        ArrayList<Battery> ret = batteries;
+        return ret;
     }
 }

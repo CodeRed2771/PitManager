@@ -23,9 +23,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="matchNumber" max="32767" attributes="0"/>
+              <Component id="matchNumber" pref="21" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="blue1" min="-2" max="-2" attributes="0"/>
+              <Component id="blue1" min="-2" pref="51" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="blue2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -73,9 +73,12 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Station 1"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="blue1.setMinimumSize(new Dimension(51, 14));&#xa;blue1.setMaximumSize(new Dimension(51, 14));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="matchNumber">
       <Properties>
@@ -89,9 +92,11 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="#"/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="matchNumber.setMinimumSize(new Dimension(9, 14));&#xa;matchNumber.setMaximumSize(new Dimension(9, 14));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="blue2">
       <Properties>
@@ -105,9 +110,12 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Station 2"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="blue2.setMinimumSize(new Dimension(51, 14));&#xa;blue2.setMaximumSize(new Dimension(51, 14));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="blue3">
       <Properties>
@@ -121,9 +129,12 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Station 3"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="blue3.setMinimumSize(new Dimension(51, 14));&#xa;blue3.setMaximumSize(new Dimension(51, 14));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="red1">
       <Properties>
@@ -137,9 +148,12 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Station 1"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="red1.setMinimumSize(new Dimension(51, 14));&#xa;red1.setMaximumSize(new Dimension(51, 14));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="red2">
       <Properties>
@@ -153,9 +167,12 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Station 2"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="red2.setMinimumSize(new Dimension(51, 14));&#xa;red2.setMaximumSize(new Dimension(51, 14));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="red3">
       <Properties>
@@ -169,9 +186,12 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Station 3"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="red3.setMinimumSize(new Dimension(51, 14));&#xa;red3.setMaximumSize(new Dimension(51, 14));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="battery">
       <Properties>
@@ -185,9 +205,11 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Battery"/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="battery.setMinimumSize(new Dimension(43, 14));&#xa;battery.setMaximumSize(new Dimension(43, 14));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="time">
       <Properties>
@@ -201,9 +223,12 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Est. Time"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="time.setMinimumSize(new Dimension(51, 14));&#xa;time.setMaximumSize(new Dimension(51, 14));"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

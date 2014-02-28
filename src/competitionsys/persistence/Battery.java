@@ -1,10 +1,12 @@
 package competitionsys.persistence;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Michael
  */
-public class Battery {
+public class Battery implements Serializable {
     private String batteryLabel;
     private String batteryDescription;
     private String batteryStatus;

@@ -24,7 +24,7 @@
           <Component id="pageNumberLabel" alignment="0" max="32767" attributes="0"/>
           <Component id="bottomSeparator" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                       <Component id="labels" max="32767" attributes="0"/>
@@ -172,30 +172,95 @@
     <Component class="competitionsys.gui.MatchScheduleLabels" name="labels">
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row1">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row2">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row3">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row4">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row5">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row6">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row7">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row8">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row9">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row10">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row11">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row12">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row13">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[551, 14]"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
