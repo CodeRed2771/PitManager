@@ -28,7 +28,7 @@ public class Window extends javax.swing.JFrame {
         int h = this.getSize().height;
         int x = (width - w) / 2;
         int y = (height - h) / 2;
-        this.setLocation(width - 2, 0);
+        this.setLocation(x, y);
         //</editor-fold>
         
         nextMatchPanel1.refresh();
