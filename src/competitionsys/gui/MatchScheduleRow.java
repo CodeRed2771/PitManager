@@ -69,7 +69,7 @@ public class MatchScheduleRow extends javax.swing.JPanel {
         for (int i = 1; i < 7; i++) {
             switch (labels[i].getText()) {
                 case "2771":
-                    labels[i].setBackground(Color.GREEN);
+                    labels[i].setBackground(Color.DARK_GRAY);
                     break;
                 case "":
                     labels[i].setBackground(Color.BLACK);

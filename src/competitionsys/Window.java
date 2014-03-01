@@ -28,7 +28,7 @@ public class Window extends javax.swing.JFrame {
         int h = this.getSize().height;
         int x = (width - w) / 2;
         int y = (height - h) / 2;
-        this.setLocation(x, y);
+        this.setLocation(width - 2, 0);
         //</editor-fold>
         
         nextMatchPanel1.refresh();
@@ -54,6 +54,7 @@ public class Window extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Pit Manager");
         setBackground(new java.awt.Color(0, 0, 0));
+        setUndecorated(true);
 
         container.setBackground(new java.awt.Color(0, 0, 0));
 
