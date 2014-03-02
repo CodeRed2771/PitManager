@@ -1,13 +1,13 @@
-package competitionsys.gui;
+package competitionsys.gui.tabs;
 
 /**
  *
  * @author Michael
  */
-public class ActionPanel extends javax.swing.JPanel {
+public class CheckList extends javax.swing.JPanel {
 
-    /** Creates new form ActionPanel */
-    public ActionPanel() {
+    /** Creates new form CheckList */
+    public CheckList() {
         initComponents();
     }
 
@@ -20,16 +20,22 @@ public class ActionPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        batteries = new competitionsys.gui.actionpanels.Batteries();
-
         setBackground(new java.awt.Color(0, 0, 0));
-        setLayout(new java.awt.CardLayout());
-        add(batteries, "card2");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private competitionsys.gui.actionpanels.Batteries batteries;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -2,17 +2,22 @@ package competitionsys.gui;
 
 import competitionsys.persistence.Competition;
 import competitionsys.persistence.Match;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Michael
  */
-public class MatchSchedulePanel extends javax.swing.JPanel {
+public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
 
     private int page = 1;
     private int maxpages;
+    private boolean refresh = false;
 
     private MatchScheduleRow rows[];
+    private ArrayList<Match> matches;
 
     /**
      * Creates new form MatchSchedulePanel
@@ -23,16 +28,23 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
         maxpages = (int) (Math.ceil(Competition.getInstance().getNumberOfMatches() / 13.0d));
 
         setupRows();
+        init();
         refresh();
+
+        new Thread(this).start();
+    }
+
+    private void init() {
+        Competition c = Competition.getInstance();
+        matches = c.getMatches();
     }
 
     private void refresh() {
-        Competition c = Competition.getInstance();
         for (int i = 0; i < 13; i++) {
-            Match m = c.getMatch((page - 1) * 13 + 1 + i);
-            if (m != null) {
-                rows[i].setLabels(m);
-            } else {
+            try { 
+            Match m = matches.get((page - 1) * 13 + i);
+            rows[i].setLabels(m);
+            } catch (IndexOutOfBoundsException ex) {
                 rows[i].setLabelsBlank();
             }
         }
@@ -54,6 +66,19 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
         rows[10] = row11;
         rows[11] = row12;
         rows[12] = row13;
+    }
+
+    public void run() {
+        while (true) {
+            if (refresh) {
+                refresh();
+            }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MatchSchedulePanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     /**
@@ -227,14 +252,14 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
     private void pageUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pageUpButtonActionPerformed
         if (page > 1) {
             page--;
-            refresh();
+            refresh = true;
         }
     }//GEN-LAST:event_pageUpButtonActionPerformed
 
     private void pageDownButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pageDownButtonActionPerformed
         if (page < maxpages) {
             page++;
-            refresh();
+            refresh = true;
         }
     }//GEN-LAST:event_pageDownButtonActionPerformed
 

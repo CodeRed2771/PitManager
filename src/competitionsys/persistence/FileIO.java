@@ -3,6 +3,7 @@ package competitionsys.persistence;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
@@ -25,13 +26,15 @@ public class FileIO {
         }
     }
 
-    public static void readMemoryIn(String path) {
+    public static void readMemoryIn(String path) throws InvalidClassException {
         try {
             try (FileInputStream fileIn = new FileInputStream(("".equals(path) ? "pitmanager" : path)); 
                     ObjectInputStream in = new ObjectInputStream(fileIn)) {
                 Competition.setInstance((Competition) in.readObject());
             }
-        }catch (ClassNotFoundException | IOException ex) {
+        } catch (InvalidClassException ex) {
+            throw new InvalidClassException("Serialized file not valid");
+        } catch (ClassNotFoundException | IOException ex) {
             Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

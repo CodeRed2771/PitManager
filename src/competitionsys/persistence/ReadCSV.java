@@ -30,7 +30,7 @@ public class ReadCSV {
                     Competition.getInstance().addMatch(convertToMatch(matchData));
                 }
             } else if (type == BATTERIES) {
-                 while ((line = read.readLine()) != null) {
+                while ((line = read.readLine()) != null) {
                     String[] batteryData = line.split(cvsSplitBy);
 
                     Competition.getInstance().addBattery(convertToBattery(batteryData));
@@ -58,6 +58,8 @@ public class ReadCSV {
     }
 
     private static Battery convertToBattery(String[] battery) {
-        return new Battery(battery[0], battery[1], battery[2]);
+        return new Battery(battery[0], " ".equals(battery[1]) ? "" : battery[1],
+                " ".equals(battery[2]) ? "" : battery[2],
+                " ".equals(battery[3]) ? "" : battery[3]);
     }
 }

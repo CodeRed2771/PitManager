@@ -8,13 +8,15 @@ import java.io.Serializable;
  */
 public class Battery implements Serializable {
     private String batteryLabel;
-    private String batteryDescription;
+    private String batteryNotes;
     private String batteryStatus;
+    private String batteryCharge;
 
-    public Battery(String batteryLabel, String batteryDescription, String batteryStatus) {
+    public Battery(String batteryLabel, String batteryNotes, String batteryStatus, String batteryCharge) {
         this.batteryLabel = batteryLabel;
-        this.batteryDescription = batteryDescription;
+        this.batteryNotes = batteryNotes;
         this.batteryStatus = batteryStatus;
+        this.batteryCharge = batteryCharge;
     }
 
     public String getBatteryLabel() {
@@ -25,12 +27,12 @@ public class Battery implements Serializable {
         this.batteryLabel = batteryLabel;
     }
 
-    public String getBatteryDescription() {
-        return batteryDescription;
+    public String getBatteryNotes() {
+        return batteryNotes;
     }
 
-    public void setBatteryDescription(String batteryDescription) {
-        this.batteryDescription = batteryDescription;
+    public void setBatteryNotes(String batteryDescription) {
+        this.batteryNotes = batteryDescription;
     }
 
     public String getBatteryStatus() {
@@ -39,5 +41,13 @@ public class Battery implements Serializable {
 
     public void setBatteryStatus(String batteryStatus) {
         this.batteryStatus = batteryStatus;
+    }
+
+    public String getBatteryCharge() {
+        return batteryCharge;
+    }
+
+    public void setBatteryCharge(String batteryCharge) {
+        this.batteryCharge = batteryCharge;
     }
 }

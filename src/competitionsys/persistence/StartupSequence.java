@@ -2,6 +2,7 @@ package competitionsys.persistence;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,7 +20,32 @@ public class StartupSequence {
         File csvBatteries = new File("batteries.csv");
 
         if (serializedInfo.exists()) {
-            FileIO.readMemoryIn("pitmanager");
+            try {
+                FileIO.readMemoryIn("pitmanager");
+            } catch (InvalidClassException ex) {
+                Logger.getLogger(StartupSequence.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(new JPanel(),
+                        "The Serialized Pit Manager file is no longer\n"
+                        + "compatible with the current Pit Manager. The\n"
+                        + "Pit Manager will now look for the required CSV files.\n",
+                        "Corrupt or Old File", JOptionPane.ERROR_MESSAGE);
+                if (csvMatches.exists() && csvBatteries.exists()) {
+                    try {
+                        serializedInfo.delete();
+                        serializedInfo.createNewFile();
+                        ReadCSV.readCSVFile("matches.csv", ReadCSV.MATCHES);
+                        ReadCSV.readCSVFile("batteries.csv", ReadCSV.BATTERIES);
+                        FileIO.writeMemory("pitmanager");
+                    } catch (IOException ex1) {
+                        Logger.getLogger(StartupSequence.class.getName()).log(Level.SEVERE, null, ex1);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(new JPanel(),
+                            "The Pit Manager couldn't find the CSV Files.\n"
+                                    + "Please create them.", "No Information", JOptionPane.ERROR_MESSAGE);
+                    System.exit(0);
+                }
+            }
         } else {
             try {
                 if (csvMatches.exists() && csvBatteries.exists()) {

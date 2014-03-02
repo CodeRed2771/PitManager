@@ -1,13 +1,13 @@
-package competitionsys.gui.actionpanels;
+package competitionsys.gui.tabs;
 
 /**
  *
  * @author Michael
  */
-public class DashboardDumpViewer extends javax.swing.JPanel {
+public class ScoutingInfo extends javax.swing.JPanel {
 
-    /** Creates new form DashboardDumpViewer */
-    public DashboardDumpViewer() {
+    /** Creates new form ScoutingInfo */
+    public ScoutingInfo() {
         initComponents();
     }
 

@@ -1,13 +1,13 @@
-package competitionsys.gui.actionpanels;
+package competitionsys.gui.tabs;
 
 /**
  *
  * @author Michael
  */
-public class ScoutingInfo extends javax.swing.JPanel {
+public class ToDoList extends javax.swing.JPanel {
 
-    /** Creates new form ScoutingInfo */
-    public ScoutingInfo() {
+    /** Creates new form ToDoList */
+    public ToDoList() {
         initComponents();
     }
 
