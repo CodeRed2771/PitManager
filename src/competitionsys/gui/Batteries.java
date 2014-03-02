@@ -23,9 +23,13 @@ public class Batteries extends javax.swing.JPanel {
         for (Battery batt : batteries) {
             model.add(batt.getBatteryLabel());
         }
-        battery.setModel(new javax.swing.DefaultComboBoxModel<>((String[]) (model.toArray())));
+        String[] array = new String[model.size()];
+        for (int i = 0; i < model.size(); i++) {
+            array[i] = model.get(i);
+        }
+        battery.setModel(new javax.swing.DefaultComboBoxModel<>(array));
     }
-    
+
     public void init() {
         loadNotes();
     }
@@ -39,7 +43,7 @@ public class Batteries extends javax.swing.JPanel {
     private void loadNotes() {
         notes.setText(batteries.get(battery.getSelectedIndex()).getBatteryNotes());
         status.setText(batteries.get(battery.getSelectedIndex()).getBatteryStatus());
-        charge.setText(batteries.get(battery.getSelectedIndex()).getBatteryCharge());        
+        charge.setText(batteries.get(battery.getSelectedIndex()).getBatteryCharge());
     }
 
     /**

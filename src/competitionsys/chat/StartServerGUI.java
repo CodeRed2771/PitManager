@@ -164,8 +164,8 @@ public class StartServerGUI extends javax.swing.JFrame {
                         + "The server will run on this computer's IP, but\n"
                         + "if you would like to connect you need to enter\n"
                         + "\"localhost\" as the server IP.  \n\n"
-                        + "Server Password: "+passwordField.getText(), "Success", JOptionPane.INFORMATION_MESSAGE);
-                Server server = new Server(23666, passwordField.getText());
+                        + "Server Password: "+passwordField.getPassword().toString(), "Success", JOptionPane.INFORMATION_MESSAGE);
+                Server server = new Server(23666, passwordField.getPassword().toString());
             } catch (IOException ex) {
                 Logger.getLogger(StartServerGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -202,12 +202,12 @@ public class StartServerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordField2FocusLost
     private boolean checkPasswords() {
         boolean returnV = false;
-        if (!"".equals(passwordField.getText()) && !"".equals(passwordField2.getText())){
-            if (!passwordField.getText().equals(passwordField2.getText())) {
+        if (!"".equals(passwordField.getPassword().toString()) && !"".equals(passwordField2.getPassword().toString())){
+            if (!passwordField.getPassword().toString().equals(passwordField2.getPassword().toString())) {
                 passwordCorrectField.setText("Doesn't Match.");
                 returnV = false;
             }
-            if (passwordField.getText().equals(passwordField2.getText())) {
+            if (passwordField.getPassword().toString().equals(passwordField2.getPassword().toString())) {
                 passwordCorrectField.setText("\u2713");
                 returnV = true;
             }

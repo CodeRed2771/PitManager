@@ -1,7 +1,6 @@
 package competitionsys;
 
 import competitionsys.persistence.FileIO;
-import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -18,6 +17,8 @@ public class Window extends javax.swing.JFrame {
         initComponents();
         this.setLocation(0, 0);
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        
+        matchSchedulePanel2.start();
         
         nextMatchPanel1.refresh();
         batteries2.init();

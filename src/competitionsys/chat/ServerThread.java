@@ -1,7 +1,10 @@
 package competitionsys.chat;
 
-import java.io.*;
-import java.net.*;
+import java.io.DataInputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.net.Socket;
+
 
 public class ServerThread extends Thread {
 

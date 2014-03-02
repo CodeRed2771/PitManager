@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class Competition implements Serializable {
 
     private static Competition competition = null;
-    private ArrayList<Match> matches;
-    private ArrayList<Battery> batteries;
+    private final ArrayList<Match> matches;
+    private final ArrayList<Battery> batteries;
 
     private Competition() {
         matches = new ArrayList<>();

@@ -4,15 +4,14 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Enumeration;
-import java.util.Hashtable;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Server extends Thread{
 
     private ServerSocket ss;
-    private Hashtable outputStreams = new Hashtable();
+    private final ArrayList<Connection> outputStreams = new ArrayList<>();
     private final int port;
     private final String password;
 
@@ -39,19 +38,15 @@ public class Server extends Thread{
             Socket s = ss.accept();
             System.out.println("Connection from " + s);
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-            outputStreams.put(s, dout);
+            outputStreams.add(new Connection(s, dout));
             ServerThread serverThread = new ServerThread(this, s, password);
         }
     }
-
-    Enumeration getOutputStreams() {
-        return outputStreams.elements();
-    }
-
+    
     void sendToAll(String message) {
         synchronized (outputStreams) {
-            for (Enumeration e = getOutputStreams(); e.hasMoreElements();) {
-                DataOutputStream dout = (DataOutputStream) e.nextElement();
+            for (Connection c : outputStreams) {
+                DataOutputStream dout = c.dout;
                 try {
                     dout.writeUTF(message);
                 } catch (IOException ie) {
@@ -64,12 +59,26 @@ public class Server extends Thread{
     void removeConnection(Socket s) {
         synchronized (outputStreams) {
             System.out.println("Removing connection to " + s);
-            outputStreams.remove(s);
+            for (Connection c : outputStreams){
+                if (c.s == s){
+                    outputStreams.remove(c);
+                }
+            }
             try {
                 s.close();
             } catch (IOException ie) {
                 System.out.println("Error closing " + s);
             }
+        }
+    }
+    
+    private class Connection {
+        Socket s;
+        DataOutputStream dout;
+
+        public Connection(Socket s, DataOutputStream dout) {
+            this.s = s;
+            this.dout = dout;
         }
     }
 }

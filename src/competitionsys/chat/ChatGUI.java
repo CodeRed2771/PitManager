@@ -197,7 +197,7 @@ public final class ChatGUI extends javax.swing.JPanel {
 
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
         IP = ipField.getText();
-        password = passwordField.getText();
+        password = passwordField.getPassword().toString();
         nickname = "[" + nickNameField.getText() + "] ";
         if ("".equals(IP) || "".equals(password) || "".equals(nickname)){
             displayMessage("You must enter a valid IP, password, and nickname.", ERRORMESSAGE);

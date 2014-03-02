@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
 
     private int page = 1;
-    private int maxpages;
+    private final int maxpages;
     private boolean refresh = false;
 
     private MatchScheduleRow rows[];
@@ -30,8 +30,10 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
         setupRows();
         init();
         refresh();
-
-        new Thread(this).start();
+    }
+    
+    public void start(){
+        new Thread().start();
     }
 
     private void init() {
@@ -68,6 +70,7 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
         rows[12] = row13;
     }
 
+    @Override
     public void run() {
         while (true) {
             if (refresh) {
