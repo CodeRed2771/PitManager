@@ -19,11 +19,11 @@ public class Batteries extends javax.swing.JPanel {
         initComponents();
 
         batteries = Competition.getInstance().getBatteries();
-        ArrayList model = new ArrayList();
+        ArrayList<String> model = new ArrayList<>();
         for (Battery batt : batteries) {
             model.add(batt.getBatteryLabel());
         }
-        battery.setModel(new javax.swing.DefaultComboBoxModel(model.toArray()));
+        battery.setModel(new javax.swing.DefaultComboBoxModel<>((String[]) (model.toArray())));
     }
     
     public void init() {
@@ -52,7 +52,7 @@ public class Batteries extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        battery = new javax.swing.JComboBox();
+        battery = new javax.swing.JComboBox<String>();
         notes = new javax.swing.JTextField();
         status = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -182,7 +182,7 @@ public class Batteries extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox battery;
+    private javax.swing.JComboBox<String> battery;
     private javax.swing.JTextField charge;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
