@@ -33,7 +33,7 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
     }
     
     public void start(){
-        new Thread().start();
+        new Thread(this).start();
     }
 
     private void init() {
@@ -75,6 +75,7 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
         while (true) {
             if (refresh) {
                 refresh();
+                refresh = false;
             }
             try {
                 Thread.sleep(100);
