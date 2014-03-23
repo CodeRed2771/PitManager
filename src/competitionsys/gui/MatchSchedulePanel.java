@@ -69,7 +69,7 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
         rows[11] = row12;
         rows[12] = row13;
     }
-
+    
     @Override
     public void run() {
         while (true) {
@@ -131,7 +131,9 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
         sideSeparator.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         pageUpButton.setBackground(new java.awt.Color(0, 0, 0));
+        pageUpButton.setForeground(new java.awt.Color(255, 255, 255));
         pageUpButton.setText("↑");
+        pageUpButton.setFocusable(false);
         pageUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pageUpButtonActionPerformed(evt);
@@ -139,7 +141,9 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
         });
 
         pageDownButton.setBackground(new java.awt.Color(0, 0, 0));
+        pageDownButton.setForeground(new java.awt.Color(255, 255, 255));
         pageDownButton.setText("↓");
+        pageDownButton.setFocusable(false);
         pageDownButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pageDownButtonActionPerformed(evt);
@@ -179,7 +183,6 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
             .addComponent(pageNumberLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(bottomSeparator)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(labels, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -198,13 +201,10 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
                     .addComponent(row13, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(sideSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pageDownButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pageUpButton))))
+                    .addComponent(pageDownButton)
+                    .addComponent(pageUpButton)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

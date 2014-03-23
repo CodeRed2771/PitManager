@@ -44,11 +44,13 @@ public class Window extends javax.swing.JFrame {
         nextMatchPanel1 = new competitionsys.gui.NextMatchPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         checkList1 = new competitionsys.gui.tabs.CheckList();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Pit Manager");
         setBackground(new java.awt.Color(0, 0, 0));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/competitionsys/gui/mediumcodered.png")).getImage());
+        setMaximumSize(new java.awt.Dimension(1680, 1026));
 
         container.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -67,20 +69,32 @@ public class Window extends javax.swing.JFrame {
         jLabel2.setText("PIT MANAGER");
 
         jTabbedPane1.setBackground(new java.awt.Color(0, 0, 0));
-        jTabbedPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
 
         javax.swing.GroupLayout checkList1Layout = new javax.swing.GroupLayout(checkList1);
         checkList1.setLayout(checkList1Layout);
         checkList1Layout.setHorizontalGroup(
             checkList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1023, Short.MAX_VALUE)
+            .addGap(0, 1025, Short.MAX_VALUE)
         );
         checkList1Layout.setVerticalGroup(
             checkList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab1", checkList1);
+        jTabbedPane1.addTab("Check List", checkList1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1025, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 642, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Notes", jPanel1);
 
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
         container.setLayout(containerLayout);
@@ -165,6 +179,7 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private competitionsys.gui.MatchSchedulePanel matchSchedulePanel2;
     private competitionsys.gui.NextMatchPanel nextMatchPanel1;

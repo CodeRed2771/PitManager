@@ -36,7 +36,7 @@ public class ReadCSV {
                     Competition.getInstance().addBattery(convertToBattery(batteryData));
                 }
             }
-
+            
             read.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ReadCSV.class.getName()).log(Level.SEVERE, null, ex);

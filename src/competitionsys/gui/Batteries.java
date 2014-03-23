@@ -69,19 +69,25 @@ public class Batteries extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 0, 0));
 
         battery.setBackground(new java.awt.Color(0, 0, 0));
+        battery.setForeground(new java.awt.Color(255, 255, 255));
         battery.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        battery.setFocusable(false);
         battery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 batteryActionPerformed(evt);
             }
         });
 
+        notes.setBackground(new java.awt.Color(0, 0, 0));
+        notes.setForeground(new java.awt.Color(255, 255, 255));
         notes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 notesActionPerformed(evt);
             }
         });
 
+        status.setBackground(new java.awt.Color(0, 0, 0));
+        status.setForeground(new java.awt.Color(255, 255, 255));
         status.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusActionPerformed(evt);
@@ -101,6 +107,8 @@ public class Batteries extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Charge:");
 
+        charge.setBackground(new java.awt.Color(0, 0, 0));
+        charge.setForeground(new java.awt.Color(255, 255, 255));
         charge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chargeActionPerformed(evt);

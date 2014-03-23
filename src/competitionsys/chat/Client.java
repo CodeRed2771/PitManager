@@ -13,65 +13,49 @@ public class Client implements Runnable {
     private Socket socket;
     private DataOutputStream dout;
     private DataInputStream din;
-    private String nickname;
-    private boolean sendingConnectionInfo = false;
-    
-    ChatGUI gui;
 
-    @SuppressWarnings("CallToThreadStartDuringObjectConstruction")
-    public Client(String host, int port, String password, String nickname, ChatGUI gui) {
-        this.gui = gui;
+    ChatGUI gui;
+    
+    public static boolean auth = false;
+    public static boolean run = true;
+
+    String nickname;
+
+    public Client(String host, int port, String nickname, ChatGUI gui) {
         try {
             socket = new Socket(host, port);
-            System.out.println("connected to " + socket);
+            System.out.println("Client connected to " + socket);
             din = new DataInputStream(socket.getInputStream());
             dout = new DataOutputStream(socket.getOutputStream());
-            this.nickname=nickname;
-            processPassword(password);
-            new Thread(this).start();
+            this.nickname = nickname;
+            dout.writeUTF(nickname);
+            gui.setGUIConnected();
+            this.gui = gui;
+            start();
         } catch (IOException ie) {
-            System.out.println(ie);
+            ie.printStackTrace();
             gui.displayMessage("An error ocurred while connecting to to server.", ChatGUI.ERRORMESSAGE);
         }
     }
 
-    public void processMessage(String message) {
+    public void start() {
+        run = true;
+        Thread t = new Thread(this);
+        t.start();
+    }
+
+    public void sendMessage(String message) {
         try {
             dout.writeUTF(message);
         } catch (IOException ie) {
-            System.out.println(ie);
-        }
-    }
-
-    private void processPassword(String password) {
-        try {
-            dout.writeUTF("ꜹ" + password);
-            String serverReply = din.readUTF();
-            switch (serverReply) {
-                case "ꜹaccepted":
-                    gui.setGUIConnected();
-                    gui.displayMessage("Connected", ChatGUI.MESSAGE);
-                    sendingConnectionInfo = true;
-                    processMessage("ꜹ1"+nickname);
-                    break;
-                case "ꜹdenied":
-                    gui.displayMessage("Incorrect password.  ", ChatGUI.ERRORMESSAGE);
-                    disconnect();
-                    break;
-                default:
-                    gui.displayMessage("The server gave an unknown responce for the given password.  ERROR CODE 485.", ChatGUI.ERRORMESSAGE);
-                    disconnect();
-                    break;
-            }
-        } catch (IOException ex) {
-            gui.displayMessage("An error ocurred while sending the password to the server.", ChatGUI.ERRORMESSAGE);
+            ie.printStackTrace();
         }
     }
 
     public void disconnect() {
         try {
-            sendingConnectionInfo = true;
-            processMessage("ꜹ2"+nickname);
+            run = false;
+            auth = false;
             socket.close();
             din.close();
             dout.close();
@@ -85,27 +69,34 @@ public class Client implements Runnable {
     @Override
     public void run() {
         try {
-            while (true) {
+            while (run) {
                 String message = din.readUTF();
-                if (!"ꜹ".equals(message.substring(0, 1))) {
-                    String tempNick = "[" + nickname + "] ";
-                    if (tempNick.equals(message.substring(0, tempNick.length()))){
-                        gui.displayMessage(message, ChatGUI.MYMESSAGE);
-                    } else {
-                        gui.displayMessage(message, ChatGUI.INCOMMINGMESSAGE);
-                    }
-                } else if ("ꜹ1".equals(message.substring(0, 2)) && sendingConnectionInfo == false){
-                    gui.displayMessage(message.substring(2) +" has connected.", ChatGUI.MESSAGE);
-                } else if ("ꜹ1".equals(message.substring(0, 2)) && sendingConnectionInfo == true){
-                    sendingConnectionInfo = false;
-                }else if ("ꜹ2".equals(message.substring(0, 2)) && sendingConnectionInfo == false){
-                    gui.displayMessage(message.substring(2) +" has disconnected.", ChatGUI.MESSAGE);
-                } else if ("ꜹ2".equals(message.substring(0, 2)) && sendingConnectionInfo == true){
-                    sendingConnectionInfo = false;
+                switch (Integer.parseInt(message.substring(0, 1))) {
+                    case 1:
+                        gui.displayMessage(message.substring(1), ChatGUI.INCOMMINGMESSAGE);
+                        break;
+                    case 2:
+                        gui.displayMessage(message.substring(1) + " has connected.", ChatGUI.MESSAGE);
+                        break;
+                    case 3:
+                        gui.displayMessage(message.substring(1) + " has disconnected.", ChatGUI.MESSAGE);
+                        break;
+                    case 4:
+                        gui.displayMessage(message.substring(1) + " has been banned.", ChatGUI.MESSAGE);
+                        break;
+                    case 5:
+                        gui.displayMessage(message.substring(1), ChatGUI.MESSAGE);
+                        break;
+                    case 6:
+                        auth = true;
+                        break;
+                    case 7:
+                        disconnect();
+                        break;
                 }
             }
         } catch (IOException ie) {
-            System.out.println(ie);
+            ie.printStackTrace();
         }
     }
 }

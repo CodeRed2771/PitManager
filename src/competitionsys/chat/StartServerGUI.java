@@ -1,10 +1,11 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package competitionsys.chat;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,10 +14,12 @@ import javax.swing.JOptionPane;
  */
 public class StartServerGUI extends javax.swing.JFrame {
 
+    ChatGUI gui;
+    
     /**
      * Creates new form StartServerGUI
      */
-    public StartServerGUI() {
+    public StartServerGUI(ChatGUI gui) {
         initComponents();
         GraphicsEnvironment g = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice[] devices = g.getScreenDevices();
@@ -30,6 +33,7 @@ public class StartServerGUI extends javax.swing.JFrame {
         int x = (width - w) / 2;
         int y = (height - h) / 2;
         this.setLocation(x, y);
+        this.gui = gui;
     }
 
     /**
@@ -158,18 +162,12 @@ public class StartServerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordField2KeyTyped
 
     private void startServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startServerActionPerformed
-        if (checkPasswords()){
-            try {
-                JOptionPane.showMessageDialog(this, "Your Team Scouter chat server has been started.\n"
-                        + "The server will run on this computer's IP, but\n"
-                        + "if you would like to connect you need to enter\n"
-                        + "\"localhost\" as the server IP.  \n\n"
-                        + "Server Password: "+passwordField.getPassword().toString(), "Success", JOptionPane.INFORMATION_MESSAGE);
-                Server server = new Server(23666, passwordField.getPassword().toString());
-            } catch (IOException ex) {
-                Logger.getLogger(StartServerGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-              this.setVisible(false);
+        if (checkPasswords()) {
+            JOptionPane.showMessageDialog(this, "Your Chat server has been started.\n\n"
+                    + "Server Password: " + passwordField.getText(), "Success", JOptionPane.INFORMATION_MESSAGE);
+            Server server = new Server(23666, passwordField.getText()).start();
+            gui.setIPtoLocalhost();
+            this.setVisible(false);
         }
     }//GEN-LAST:event_startServerActionPerformed
 
@@ -202,12 +200,12 @@ public class StartServerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordField2FocusLost
     private boolean checkPasswords() {
         boolean returnV = false;
-        if (!"".equals(passwordField.getPassword().toString()) && !"".equals(passwordField2.getPassword().toString())){
-            if (!passwordField.getPassword().toString().equals(passwordField2.getPassword().toString())) {
+        if (!"".equals(passwordField.getText()) && !"".equals(passwordField2.getText())) {
+            if (!passwordField.getText().equals(passwordField2.getText())) {
                 passwordCorrectField.setText("Doesn't Match.");
                 returnV = false;
             }
-            if (passwordField.getPassword().toString().equals(passwordField2.getPassword().toString())) {
+            if (passwordField.getText().equals(passwordField2.getText())) {
                 passwordCorrectField.setText("\u2713");
                 returnV = true;
             }

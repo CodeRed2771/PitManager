@@ -1,48 +1,69 @@
 package competitionsys.chat;
 
+import competitionsys.chat.Server.Connection;
 import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
-import java.net.Socket;
 
+public class ServerThread implements Runnable {
 
-public class ServerThread extends Thread {
-
+    private final Connection connection;
     private final Server server;
-    private final Socket socket;
-    private final String password;
 
-    @SuppressWarnings("CallToThreadStartDuringObjectConstruction")
-    public ServerThread(Server server, Socket socket, String password) {
+    boolean isAuth = false;
+    int authTries = 0;
+
+    public ServerThread(Server server, Connection connection) {
         this.server = server;
-        this.socket = socket;
-        this.password = password;
-        start();
+        this.connection = connection;
+    }
+
+    public ServerThread start() {
+        new Thread(this).start();
+        return this;
     }
 
     @Override
     public void run() {
         try {
-            DataInputStream din = new DataInputStream(socket.getInputStream());
-            while (true) {
-                String message = din.readUTF();
-                String temp = message;
-                String passCheck = temp.substring(0, 1);
-                if ("ꜹ".equals(passCheck)){
-                    String givenPassword = temp.substring(1);
-                    if (givenPassword.equals(this.password)){
-                        server.sendToAll("ꜹaccepted");
+            DataInputStream din = connection.getDataInputStream();
+            connection.getDataOutputStream().writeUTF("5Please enter your password...");
+            while (!isAuth) {
+                String password = din.readUTF();
+                if (password.equals(server.password)) {
+                    isAuth = true;
+                    server.authenticateClient(connection);
+                    server.relayNewAuthenticatedConnection(connection);
+                    connection.getDataOutputStream().writeUTF("5You are now connected.");
+                    connection.getDataOutputStream().writeUTF("6");
+                } else {
+                    authTries++;
+                    if (authTries >= 3) {
+                        connection.getDataOutputStream().writeUTF("5Too many failed attempts, you are banned.");
+                        connection.getDataOutputStream().writeUTF("7");
+                        server.relayBan(connection);
+                        server.ban(connection);
+                        connection.close();
                     } else {
-                        server.sendToAll("ꜹdenied");
+                        connection.getDataOutputStream().writeUTF("5Incorrect, please try again.");
                     }
                 }
-                System.out.println("Sending " + message);
-                server.sendToAll(message);
+            }
+
+            while (true && isAuth) {
+                String message = din.readUTF();
+                server.relayMessage(message, connection);
             }
         } catch (EOFException ie) {
         } catch (IOException ie) {
         } finally {
-            server.removeConnection(socket);
+            if (isAuth) {
+                server.removeAuthenticatedClient(connection);
+                server.relayAuthenticatedConnectionDisconnect(connection);
+            } else {
+                server.removeUnauthenticatedClient(connection);
+            }
+            connection.close();
         }
     }
 }
