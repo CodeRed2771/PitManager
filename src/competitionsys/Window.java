@@ -49,7 +49,7 @@ public class Window extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Pit Manager");
         setBackground(new java.awt.Color(0, 0, 0));
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/competitionsys/gui/mediumcodered.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/competitionsys/gui/coderedicon.png")).getImage());
         setMaximumSize(new java.awt.Dimension(1680, 1026));
 
         container.setBackground(new java.awt.Color(0, 0, 0));
@@ -62,13 +62,16 @@ public class Window extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/competitionsys/gui/mediumcodered.png"))); // NOI18N
+        jLabel1.setMinimumSize(new java.awt.Dimension(0, 280));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("PIT MANAGER");
+        jLabel2.setMinimumSize(new java.awt.Dimension(0, 43));
 
         jTabbedPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout checkList1Layout = new javax.swing.GroupLayout(checkList1);
         checkList1.setLayout(checkList1Layout);
@@ -134,7 +137,7 @@ public class Window extends javax.swing.JFrame {
                         .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(matchSchedulePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(containerLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
