@@ -54,6 +54,7 @@ public final class ChatGUI extends javax.swing.JPanel {
         jLabel2.setText("IP:");
 
         ipField.setBackground(new java.awt.Color(0, 0, 0));
+        ipField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ipField.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -61,6 +62,7 @@ public final class ChatGUI extends javax.swing.JPanel {
         jLabel1.setText("Name:");
 
         nickNameField.setBackground(new java.awt.Color(0, 0, 0));
+        nickNameField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         nickNameField.setForeground(new java.awt.Color(255, 255, 255));
         nickNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +71,8 @@ public final class ChatGUI extends javax.swing.JPanel {
         });
 
         connectButton.setBackground(new java.awt.Color(0, 0, 0));
+        connectButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        connectButton.setForeground(new java.awt.Color(255, 255, 255));
         connectButton.setText("Connect");
         connectButton.setFocusable(false);
         connectButton.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +82,8 @@ public final class ChatGUI extends javax.swing.JPanel {
         });
 
         disconnectButton.setBackground(new java.awt.Color(0, 0, 0));
+        disconnectButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        disconnectButton.setForeground(new java.awt.Color(255, 255, 255));
         disconnectButton.setText("Disconnect");
         disconnectButton.setEnabled(false);
         disconnectButton.setFocusable(false);
@@ -88,6 +94,8 @@ public final class ChatGUI extends javax.swing.JPanel {
         });
 
         iAmServerButton.setBackground(new java.awt.Color(0, 0, 0));
+        iAmServerButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        iAmServerButton.setForeground(new java.awt.Color(255, 255, 255));
         iAmServerButton.setText("Start Server");
         iAmServerButton.setFocusable(false);
         iAmServerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +110,7 @@ public final class ChatGUI extends javax.swing.JPanel {
         jScrollPane1.setViewportView(chatWindow);
 
         inputField.setBackground(new java.awt.Color(0, 0, 0));
+        inputField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         inputField.setForeground(new java.awt.Color(255, 255, 255));
         inputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +142,7 @@ public final class ChatGUI extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addGap(3, 3, 3)
                         .addComponent(nickNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addComponent(connectButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(disconnectButton)
@@ -243,7 +252,6 @@ public final class ChatGUI extends javax.swing.JPanel {
         StyledDocument doc = chatWindow.getStyledDocument();
         SimpleAttributeSet keyWord = new SimpleAttributeSet();
         StyleConstants.setForeground(keyWord, Color.BLUE);
-        StyleConstants.setBold(keyWord, true);
         final String finalmessage;
         String prefix = null;
         if (type == 1) {
@@ -262,6 +270,7 @@ public final class ChatGUI extends javax.swing.JPanel {
             StyleConstants.setForeground(keyWord, Color.RED);
             prefix = "\n";
         }
+        StyleConstants.setBold(keyWord, true);
         finalmessage = prefix + message;
         try {
             doc.insertString(doc.getLength(), finalmessage, keyWord);
