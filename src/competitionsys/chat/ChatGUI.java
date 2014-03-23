@@ -2,6 +2,8 @@ package competitionsys.chat;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.SimpleAttributeSet;
@@ -202,6 +204,7 @@ public final class ChatGUI extends javax.swing.JPanel {
             displayMessage("You must enter a valid IP and nickname.", ERRORMESSAGE);
         } else {
             client = new Client(IP, 23666, nickNameField.getText(), this);
+            client.start();
         }
     }//GEN-LAST:event_connectButtonActionPerformed
 
@@ -276,7 +279,7 @@ public final class ChatGUI extends javax.swing.JPanel {
             doc.insertString(doc.getLength(), finalmessage, keyWord);
             chatWindow.setCaretPosition(chatWindow.getDocument().getLength());
         } catch (BadLocationException e) {
-            e.printStackTrace();
+            Logger.getLogger(ChatGUI.class.getName()).log(Level.SEVERE, null, e);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

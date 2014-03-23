@@ -3,18 +3,15 @@ package competitionsys.gui;
 import competitionsys.persistence.Competition;
 import competitionsys.persistence.Match;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Michael
  */
-public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
+public class MatchSchedulePanel extends javax.swing.JPanel {
 
     private int page = 1;
     private final int maxpages;
-    private boolean refresh = false;
 
     private MatchScheduleRow rows[];
     private ArrayList<Match> matches;
@@ -31,10 +28,6 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
         init();
         refresh();
     }
-    
-    public void start(){
-        new Thread(this).start();
-    }
 
     private void init() {
         Competition c = Competition.getInstance();
@@ -42,15 +35,20 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
     }
 
     private void refresh() {
-        for (int i = 0; i < 13; i++) {
-            try { 
-            Match m = matches.get((page - 1) * 13 + i);
-            rows[i].setLabels(m);
-            } catch (IndexOutOfBoundsException ex) {
-                rows[i].setLabelsBlank();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 13; i++) {
+                    try {
+                        Match m = matches.get((page - 1) * 13 + i);
+                        rows[i].setLabels(m);
+                    } catch (IndexOutOfBoundsException ex) {
+                        rows[i].setLabelsBlank();
+                    }
+                }
+                pageNumberLabel.setText("Page " + String.valueOf(page) + " of " + String.valueOf(maxpages));
             }
-        }
-        pageNumberLabel.setText("Page " + String.valueOf(page) + " of " + String.valueOf(maxpages));
+        }).start();
     }
 
     private void setupRows() {
@@ -68,21 +66,6 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
         rows[10] = row11;
         rows[11] = row12;
         rows[12] = row13;
-    }
-    
-    @Override
-    public void run() {
-        while (true) {
-            if (refresh) {
-                refresh();
-                refresh = false;
-            }
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(MatchSchedulePanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
     }
 
     /**
@@ -256,14 +239,14 @@ public class MatchSchedulePanel extends javax.swing.JPanel implements Runnable {
     private void pageUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pageUpButtonActionPerformed
         if (page > 1) {
             page--;
-            refresh = true;
+            refresh();
         }
     }//GEN-LAST:event_pageUpButtonActionPerformed
 
     private void pageDownButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pageDownButtonActionPerformed
         if (page < maxpages) {
             page++;
-            refresh = true;
+            refresh();
         }
     }//GEN-LAST:event_pageDownButtonActionPerformed
 

@@ -4,6 +4,8 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * ERROR CODES FOR PROGRAM - 485 - LINE 53 UNKNOWN SERVER REPONSE FOR GIVEN PASSWORD.
@@ -31,9 +33,8 @@ public class Client implements Runnable {
             dout.writeUTF(nickname);
             gui.setGUIConnected();
             this.gui = gui;
-            start();
         } catch (IOException ie) {
-            ie.printStackTrace();
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ie);
             gui.displayMessage("An error ocurred while connecting to to server.", ChatGUI.ERRORMESSAGE);
         }
     }
@@ -48,7 +49,7 @@ public class Client implements Runnable {
         try {
             dout.writeUTF(message);
         } catch (IOException ie) {
-            ie.printStackTrace();
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ie);
         }
     }
 
@@ -96,7 +97,7 @@ public class Client implements Runnable {
                 }
             }
         } catch (IOException ie) {
-            ie.printStackTrace();
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ie);
         }
     }
 }

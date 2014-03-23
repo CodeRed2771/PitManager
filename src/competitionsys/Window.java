@@ -18,8 +18,6 @@ public class Window extends javax.swing.JFrame {
         this.setLocation(0, 0);
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         
-        matchSchedulePanel2.start();
-        
         nextMatchPanel1.refresh();
         batteries2.init();
         
@@ -43,8 +41,9 @@ public class Window extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         nextMatchPanel1 = new competitionsys.gui.NextMatchPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        checkList1 = new competitionsys.gui.tabs.CheckList();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Pit Manager");
@@ -73,31 +72,27 @@ public class Window extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(0, 0, 0));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout checkList1Layout = new javax.swing.GroupLayout(checkList1);
-        checkList1.setLayout(checkList1Layout);
-        checkList1Layout.setHorizontalGroup(
-            checkList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
-        );
-        checkList1Layout.setVerticalGroup(
-            checkList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Check List", checkList1);
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
+            .addGap(0, 988, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 642, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Notes", jPanel1);
+        jTabbedPane1.addTab("Check List", jPanel1);
+
+        jTextPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jTextPane1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jTextPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(jTextPane1);
+
+        jTabbedPane1.addTab("Notes", jScrollPane1);
 
         javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
         container.setLayout(containerLayout);
@@ -116,9 +111,11 @@ public class Window extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jTabbedPane1))
-                .addContainerGap())
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(containerLayout.createSequentialGroup()
+                        .addComponent(jTabbedPane1)
+                        .addGap(47, 47, 47))))
         );
         containerLayout.setVerticalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,12 +175,13 @@ public class Window extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private competitionsys.gui.Batteries batteries2;
     private competitionsys.chat.ChatGUI chatGUI1;
-    private competitionsys.gui.tabs.CheckList checkList1;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextPane jTextPane1;
     private competitionsys.gui.MatchSchedulePanel matchSchedulePanel2;
     private competitionsys.gui.NextMatchPanel nextMatchPanel1;
     // End of variables declaration//GEN-END:variables
