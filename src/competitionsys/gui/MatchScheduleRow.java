@@ -48,7 +48,7 @@ public class MatchScheduleRow extends javax.swing.JPanel {
         setLabels(match.getMatchNumber(), match.getBlueStation1(),
                 match.getBlueStation2(), match.getBlueStation3(),
                 match.getRedStation1(), match.getRedStation2(),
-                match.getRedStation3(), match.getBatteryLetter(),
+                match.getRedStation3(), match.getBattery().getBatteryLetter(),
                 match.getMatchTime());
     }
 

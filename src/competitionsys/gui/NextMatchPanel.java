@@ -12,44 +12,45 @@ import java.util.ArrayList;
 public class NextMatchPanel extends javax.swing.JPanel {
 
     private static ArrayList<Match> matches;
-
     private int page = 1;
+    Batteries batts;
 
     /**
      * Creates new form NextMatchPanel
      */
-    public NextMatchPanel() {
+    public NextMatchPanel(){//Batteries batts) {
         initComponents();
-        matches = new ArrayList<>();
-        for (Match match : Competition.getInstance().getMatches()) {
-            if (match.searchFor(2771)) {
-                matches.add(match);
-            }
-        }
+//        matches = Competition.getInstance().getCodeRedSchedule();
+//        this.batts = batts;
+//        refresh();
     }
 
     public static void notifyOf2771Match(Match match) {
-        if (!matches.contains(match)) {
-            matches.add(match);
-        }
+//        if (!matches.contains(match)) {
+//            matches.add(match);
+//        }
     }
 
-    public void refresh() {
-        Match match = matches.get(page - 1);
-        nextMatchLabel.setText(String.valueOf(match.getMatchNumber()));
-        if (match.getBlueStation1() == 2771 || match.getBlueStation2() == 2771
-                || match.getBlueStation3() == 2771) {
-            colorPanel.setBackground(Color.BLUE);
-            allianceLabel.setForeground(Color.BLUE);
-            allianceLabel.setText("BLUE ALLIANCE");
-        } else {
-            colorPanel.setBackground(Color.RED);
-            allianceLabel.setForeground(Color.RED);
-            allianceLabel.setText("RED ALLIANCE");
-        }
-        batteryLabel.setText("Battery: " + match.getBatteryLetter());
-        estimatedTimeLabel.setText("Time: " + match.getMatchTime());
-        matchBar.setLabels(match);
+    private void refresh() {
+//        Match match = matches.get(page - 1);
+//        Competition.getInstance().setNextCodeRedMatch(page - 1);
+//        if (batts != null) {
+//            batts.refresh();
+//        }
+//        nextMatchLabel.setText(String.valueOf(match.getMatchNumber()));
+//        if (match.getBlueStation1() == 2771 || match.getBlueStation2() == 2771
+//                || match.getBlueStation3() == 2771) {
+//            colorPanel.setBackground(Color.BLUE);
+//            allianceLabel.setForeground(Color.BLUE);
+//            allianceLabel.setText("BLUE ALLIANCE");
+//        } else {
+//            colorPanel.setBackground(Color.RED);
+//            allianceLabel.setForeground(Color.RED);
+//            allianceLabel.setText("RED ALLIANCE");
+//        }
+//        batteryLabel.setText("Battery: " + match.getBattery().getBatteryLetter());
+//        estimatedTimeLabel.setText("Time: " + match.getMatchTime());
+//        matchBar.setLabels(match);
     }
 
     /**
@@ -224,18 +225,17 @@ public class NextMatchPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (page > 1) {
-            page--;
-            refresh();
-        }
+//        if (page > 1) {
+//            page--;
+//            refresh();
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.out.println(page + "\t" + matches.size());
-        if (page < matches.size()) {
-            page++;
-            refresh();
-        }
+//        if (page < matches.size()) {
+//            page++;
+//            refresh();
+//        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

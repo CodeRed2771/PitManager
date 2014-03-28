@@ -19,18 +19,18 @@ public class Match implements Serializable {
     private int redStation2;
     private int redStation3;
     
-    private String batteryLetter;
+    private Battery battery;
 
-    public Match(int matchNumber, int blueStation1, int blueStation2, int blueStation3, int redStation1, int redStation2, int redStation3, String batteryLetter, String matchTime) {
+    public Match(int matchNumber, int blueStation1, int blueStation2, int blueStation3, int redStation1, int redStation2, int redStation3, String matchTime, Battery battery) {
         this.matchNumber = matchNumber;
+        this.matchTime = matchTime;
         this.blueStation1 = blueStation1;
         this.blueStation2 = blueStation2;
         this.blueStation3 = blueStation3;
         this.redStation1 = redStation1;
         this.redStation2 = redStation2;
         this.redStation3 = redStation3;
-        this.batteryLetter = batteryLetter;
-        this.matchTime = matchTime;
+        this.battery = battery;
     }
 
     public int getMatchNumber() {
@@ -39,6 +39,14 @@ public class Match implements Serializable {
 
     public void setMatchNumber(int matchNumber) {
         this.matchNumber = matchNumber;
+    }
+
+    public String getMatchTime() {
+        return matchTime;
+    }
+
+    public void setMatchTime(String matchTime) {
+        this.matchTime = matchTime;
     }
 
     public int getBlueStation1() {
@@ -89,20 +97,12 @@ public class Match implements Serializable {
         this.redStation3 = redStation3;
     }
 
-    public String getMatchTime() {
-        return matchTime;
+    public Battery getBattery() {
+        return battery;
     }
 
-    public void setMatchTime(String matchTime) {
-        this.matchTime = matchTime;
-    }
-
-    public String getBatteryLetter() {
-        return batteryLetter;
-    }
-
-    public void setBatteryLetter(String batteryLetter) {
-        this.batteryLetter = batteryLetter;
+    public void setBattery(Battery battery) {
+        this.battery = battery;
     }
     
     public boolean searchFor(int team){

@@ -7,7 +7,6 @@
             <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/chat/ChatGUI.java</file>
             <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/chat/Client.java</file>
             <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/chat/ServerThread.java</file>
-            <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/Window.java</file>
             <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/NextMatchPanel.java</file>
             <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/persistence/Battery.java</file>
             <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/MatchSchedulePanel.java</file>
@@ -17,6 +16,12 @@
             <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/Batteries.java</file>
             <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/MatchScheduleRow.java</file>
             <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/coderedicon.png</file>
+            <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/persistence/Competition.java</file>
+            <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/persistence/Match.java</file>
+            <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/persistence/StartupSequence.java</file>
+            <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/persistence/FileIO.java</file>
+            <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/battery.png</file>
+            <file>file:/C:/Users/Michael/Dropbox/NetbeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/Window.java</file>
         </group>
     </open-files>
 </project-private>

@@ -33,8 +33,8 @@ public class StartupSequence {
                     try {
                         serializedInfo.delete();
                         serializedInfo.createNewFile();
-                        ReadCSV.readCSVFile("matches.csv", ReadCSV.MATCHES);
                         ReadCSV.readCSVFile("batteries.csv", ReadCSV.BATTERIES);
+                        ReadCSV.readCSVFile("matches.csv", ReadCSV.MATCHES);
                         FileIO.writeMemory("pitmanager");
                     } catch (IOException ex1) {
                         Logger.getLogger(StartupSequence.class.getName()).log(Level.SEVERE, null, ex1);
@@ -50,8 +50,8 @@ public class StartupSequence {
             try {
                 if (csvMatches.exists() && csvBatteries.exists()) {
                     serializedInfo.createNewFile();
-                    ReadCSV.readCSVFile("matches.csv", ReadCSV.MATCHES);
                     ReadCSV.readCSVFile("batteries.csv", ReadCSV.BATTERIES);
+                    ReadCSV.readCSVFile("matches.csv", ReadCSV.MATCHES);
                     FileIO.writeMemory("pitmanager");
                 } else {
                     JOptionPane.showMessageDialog(new JPanel(),
@@ -68,5 +68,7 @@ public class StartupSequence {
                 Logger.getLogger(StartupSequence.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        Competition.getInstance().initCodeRedSchedule();
+        Competition.getInstance().setNextCodeRedMatch(0);
     }
 }

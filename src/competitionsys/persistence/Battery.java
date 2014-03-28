@@ -7,47 +7,33 @@ import java.io.Serializable;
  * @author Michael
  */
 public class Battery implements Serializable {
-    private String batteryLabel;
-    private String batteryNotes;
-    private String batteryStatus;
-    private String batteryCharge;
 
-    public Battery(String batteryLabel, String batteryNotes, String batteryStatus, String batteryCharge) {
-        this.batteryLabel = batteryLabel;
-        this.batteryNotes = batteryNotes;
-        this.batteryStatus = batteryStatus;
-        this.batteryCharge = batteryCharge;
+    private String batteryLetter;
+    private boolean charged;
+
+    public Battery(String batteryLetter) {
+        this.batteryLetter = batteryLetter;
+        charged = true;
     }
 
-    public String getBatteryLabel() {
-        return batteryLabel;
+    public Battery(String batteryLetter, boolean charged) {
+        this.batteryLetter = batteryLetter;
+        this.charged = charged;
     }
 
-    public void setBatteryLabel(String batteryLabel) {
-        this.batteryLabel = batteryLabel;
+    public String getBatteryLetter() {
+        return batteryLetter;
     }
 
-    public String getBatteryNotes() {
-        return batteryNotes;
+    public void setBatteryLetter(String batteryLetter) {
+        this.batteryLetter = batteryLetter;
     }
 
-    public void setBatteryNotes(String batteryDescription) {
-        this.batteryNotes = batteryDescription;
+    public boolean isCharged() {
+        return charged;
     }
 
-    public String getBatteryStatus() {
-        return batteryStatus;
-    }
-
-    public void setBatteryStatus(String batteryStatus) {
-        this.batteryStatus = batteryStatus;
-    }
-
-    public String getBatteryCharge() {
-        return batteryCharge;
-    }
-
-    public void setBatteryCharge(String batteryCharge) {
-        this.batteryCharge = batteryCharge;
+    public void setCharged(boolean charged) {
+        this.charged = charged;
     }
 }

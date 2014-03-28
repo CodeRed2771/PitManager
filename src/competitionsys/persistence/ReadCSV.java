@@ -36,7 +36,7 @@ public class ReadCSV {
                     Competition.getInstance().addBattery(convertToBattery(batteryData));
                 }
             }
-            
+
             read.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ReadCSV.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,13 +53,12 @@ public class ReadCSV {
                 Integer.parseInt(match[4]),
                 Integer.parseInt(match[5]),
                 Integer.parseInt(match[6]),
-                match[7].toString(),
-                match[8].toString());
+                match[8].toString(),
+                Competition.getInstance().getBattery(match[7].toString()));
     }
 
     private static Battery convertToBattery(String[] battery) {
-        return new Battery(battery[0], " ".equals(battery[1]) ? "" : battery[1],
-                " ".equals(battery[2]) ? "" : battery[2],
-                " ".equals(battery[3]) ? "" : battery[3]);
+        return new Battery(battery[0],
+                " ".equals(battery[1]) ? true : Boolean.parseBoolean(battery[1]));
     }
 }

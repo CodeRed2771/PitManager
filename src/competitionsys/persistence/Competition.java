@@ -12,10 +12,14 @@ public class Competition implements Serializable {
     private static Competition competition = null;
     private final ArrayList<Match> matches;
     private final ArrayList<Battery> batteries;
+    
+    private final ArrayList<Match> codeRedSchedule;
+    private int nextCodeRedMatch = 0;
 
     private Competition() {
         matches = new ArrayList<>();
         batteries = new ArrayList<>();
+        codeRedSchedule = new ArrayList<>();
     }
 
     public static Competition getInstance() {
@@ -84,11 +88,11 @@ public class Competition implements Serializable {
 
     public Battery getBattery(String batteryLabel) {
         for (Battery battery : batteries) {
-            if (battery.getBatteryLabel().equals(batteryLabel)) {
+            if (battery.getBatteryLetter().equals(batteryLabel)) {
                 return battery;
             }
         }
-        return null;
+        return new Battery("", false);
     }
 
     public void removeBatteryByIndex(int index) {
@@ -101,7 +105,7 @@ public class Competition implements Serializable {
 
     public void removeBattery(String batteryLabel) {
         for (Battery battery : batteries) {
-            if (battery.getBatteryLabel().equals(batteryLabel)) {
+            if (battery.getBatteryLetter().equals(batteryLabel)) {
                 batteries.remove(battery);
                 return;
             }
@@ -115,5 +119,26 @@ public class Competition implements Serializable {
     public ArrayList<Battery> getBatteries() {
         ArrayList<Battery> ret = batteries;
         return ret;
+    }
+    
+    public ArrayList<Match> getCodeRedSchedule(){
+        ArrayList<Match> ret = codeRedSchedule;
+        return ret;
+    }
+    
+    public void initCodeRedSchedule() {
+        for (Match match : matches){
+            if(match.searchFor(2771)){
+                codeRedSchedule.add(match);
+            }
+        }
+    }
+
+    public int getNextCodeRedMatch() {
+        return nextCodeRedMatch;
+    }
+
+    public void setNextCodeRedMatch(int nextCodeRedMatch) {
+        this.nextCodeRedMatch = nextCodeRedMatch;
     }
 }

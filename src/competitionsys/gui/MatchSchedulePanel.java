@@ -30,8 +30,7 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
     }
 
     private void init() {
-        Competition c = Competition.getInstance();
-        matches = c.getMatches();
+        matches = Competition.getInstance().getMatches();
     }
 
     private void refresh() {

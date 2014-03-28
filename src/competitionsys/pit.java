@@ -34,7 +34,7 @@ public class pit {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Window().setVisible(true);
+                new PitManager().setVisible(true);
             }
         });
     }
