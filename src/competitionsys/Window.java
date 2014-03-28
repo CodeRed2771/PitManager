@@ -19,6 +19,7 @@ public class Window extends javax.swing.JFrame {
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         
         nextMatchPanel1.refresh();
+        batteries2.init();
         
         setupCloseListener();
     }
@@ -35,11 +36,11 @@ public class Window extends javax.swing.JFrame {
         container = new javax.swing.JPanel();
         matchSchedulePanel2 = new competitionsys.gui.MatchSchedulePanel();
         chatGUI1 = new competitionsys.chat.ChatGUI();
+        batteries2 = new competitionsys.gui.Batteries();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         nextMatchPanel1 = new competitionsys.gui.NextMatchPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        batteries1 = new competitionsys.gui.Batteries();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
@@ -56,6 +57,8 @@ public class Window extends javax.swing.JFrame {
 
         chatGUI1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
 
+        batteries2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/competitionsys/gui/mediumcodered.png"))); // NOI18N
         jLabel1.setMinimumSize(new java.awt.Dimension(0, 280));
@@ -68,19 +71,6 @@ public class Window extends javax.swing.JFrame {
 
         jTabbedPane1.setBackground(new java.awt.Color(0, 0, 0));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout batteries1Layout = new javax.swing.GroupLayout(batteries1);
-        batteries1.setLayout(batteries1Layout);
-        batteries1Layout.setHorizontalGroup(
-            batteries1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 988, Short.MAX_VALUE)
-        );
-        batteries1Layout.setVerticalGroup(
-            batteries1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Batteries", batteries1);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -112,6 +102,7 @@ public class Window extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(chatGUI1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(batteries2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nextMatchPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +124,9 @@ public class Window extends javax.swing.JFrame {
                 .addGroup(containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(containerLayout.createSequentialGroup()
                         .addComponent(nextMatchPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(batteries2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(chatGUI1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(containerLayout.createSequentialGroup()
                         .addComponent(jTabbedPane1)
@@ -180,7 +173,7 @@ public class Window extends javax.swing.JFrame {
         }.init(this));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private competitionsys.gui.Batteries batteries1;
+    private competitionsys.gui.Batteries batteries2;
     private competitionsys.chat.ChatGUI chatGUI1;
     private javax.swing.JPanel container;
     private javax.swing.JLabel jLabel1;
