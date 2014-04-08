@@ -15,6 +15,10 @@ public class Competition implements Serializable {
     
     private final ArrayList<Match> codeRedSchedule;
     private int nextCodeRedMatch = 0;
+    
+    private String notes;
+    
+    private boolean memoryInitialized = false;
 
     private Competition() {
         matches = new ArrayList<>();
@@ -127,6 +131,7 @@ public class Competition implements Serializable {
     }
     
     public void initCodeRedSchedule() {
+        codeRedSchedule.clear();
         for (Match match : matches){
             if(match.searchFor(2771)){
                 codeRedSchedule.add(match);
@@ -140,5 +145,21 @@ public class Competition implements Serializable {
 
     public void setNextCodeRedMatch(int nextCodeRedMatch) {
         this.nextCodeRedMatch = nextCodeRedMatch;
+    }
+
+    public boolean isMemoryInitialized() {
+        return memoryInitialized;
+    }
+
+    public void setMemoryInitialized(boolean memoryInitialized) {
+        this.memoryInitialized = memoryInitialized;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

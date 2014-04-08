@@ -12,7 +12,7 @@ public class pit {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        //<editor-fold defaultstate="collapsed" desc=" Set System Default Look and Feel ">
+        //<editor-fold defaultstate="collapsed" desc=" Set Cross Platform Look and Feel ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
@@ -34,7 +34,7 @@ public class pit {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new PitManager().setVisible(true);
+                new Window().setVisible(true);
             }
         });
     }

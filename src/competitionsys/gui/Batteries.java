@@ -4,6 +4,8 @@ import competitionsys.persistence.Battery;
 import competitionsys.persistence.Competition;
 import competitionsys.persistence.Match;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 public class Batteries extends javax.swing.JPanel {
 
     ArrayList<Match> matches;
+    ArrayList<Battery> batteries;
 
     /**
      * Creates new form Batteries
@@ -22,6 +25,7 @@ public class Batteries extends javax.swing.JPanel {
     public Batteries() {
         initComponents();
         matches = Competition.getInstance().getCodeRedSchedule();
+        batteries = Competition.getInstance().getBatteries();
         if (matches == null) {
             matches = new ArrayList<>();
         }
@@ -37,41 +41,71 @@ public class Batteries extends javax.swing.JPanel {
     }
 
     public void draw(Graphics g) {
-        g.setColor(Color.white);
-        for (int i = 20; i <= 140; i += 60) {
-            g.drawRect(i, 60, 60, 30);
-        }
-        for (int x = 20; x <= 140; x += 60) {
-            for (int y = 90; y <= 330; y += 60) {
-                Battery batt = convertPosToBattery((x - 10) / 60, (y - 40) / 60);
-                g.setColor(batt.isCharged() ? Color.green : Color.red);
-                g.fillRect(x, y, 60, 60);
-                g.setColor(Color.white);
-                g.drawRect(x, y, 60, 60);
+        if (Competition.getInstance().isMemoryInitialized()) {
+            g.setColor(Color.white);
+            g.setFont(new Font("Arial", Font.BOLD, 45));
+            for (int i = 240; i <= 360; i += 60) {
+                g.drawRect(i, 20, 60, 30);
+            }
+
+            Match match = matches.get(Competition.getInstance().getNextCodeRedMatch());
+            if (match.getBlueStation1() == 2771 || match.getBlueStation2() == 2771
+                    || match.getBlueStation3() == 2771) {
+                g.setColor(Color.BLUE);
+            } else {
+                g.setColor(Color.RED);
+            }
+            g.fillRect(450, 20, 160, 200);
+            g.setColor(Color.DARK_GRAY);
+            g.fillRect(465, 35, 130, 170);
+
+            int nextMatch = Competition.getInstance().getNextCodeRedMatch();
+            FontMetrics metrics = g.getFontMetrics();
+            for (int i = nextMatch; i < nextMatch + batteries.size(); i++) {
+                System.out.println("Next Match: " + nextMatch + "\ti: " + i + "\tBatteries Size: "+batteries.size());
+                int[] pos = convertBattToPos(i - nextMatch);
+                Battery battery = batteries.get(wrapIndex(i));
+                if (pos[0] == -1) {
+                    g.setColor(Color.white);
+                    g.drawString(battery.getBatteryLetter(), (130 - metrics.stringWidth(battery.getBatteryLetter())) / 2 + 465, 100);
+                } else {
+                    g.setColor(battery.isCharged() ? Color.green : Color.red);
+                    g.fillRect(240 + pos[0] * 60, 50 + pos[1] * 60, 60, 60);
+                    g.setColor(Color.white);
+                    g.drawString(battery.getBatteryLetter(),
+                            (60 - metrics.stringWidth(battery.getBatteryLetter())) / 2 + 240 + pos[0] * 60,
+                            95 + pos[1] * 60);
+                }
+            }
+
+            g.setColor(Color.white);
+            for (int x = 240; x <= 360; x += 60) {
+                for (int y = 50; y <= 230; y += 60) {
+                    g.drawRect(x, y, 60, 60);
+                }
             }
         }
-        g.setColor(Color.white);
-        g.fillRect(250, 60, 160, 200);
-        g.setColor(Color.magenta);
-        g.fillRect(265, 75, 130, 170);
     }
 
     public void refresh() {
         repaint();
     }
 
-    private Battery convertPosToBattery(int row, int column) {
-        try {
-            int i = Competition.getInstance().getNextCodeRedMatch();
-            i += column + 3 * (row + 1);
-            return matches.get(wrapIndex(i)).getBattery();
-        } catch (IndexOutOfBoundsException ex) {
-            return new Battery("", false);
+    public int[] convertBattToPos(int index) {
+        int i = index + Competition.getInstance().getNextCodeRedMatch();
+        System.out.println("i: " + i);
+        if (i == 0) {
+            int[] a = {-1, 0};
+            return a;
+        } else {
+            index--;
+            int[] a = {index % 3, (int) (Math.floor(index / 3))};
+            return a;
         }
     }
 
     private int wrapIndex(int i) {
-        return i < matches.size() ? i : i - matches.size();
+        return i < batteries.size() ? i : wrapIndex(i - batteries.size());
     }
 
     /**
@@ -119,9 +153,9 @@ public class Batteries extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 415, Short.MAX_VALUE)
                 .addComponent(jLabel1))
         );
     }// </editor-fold>//GEN-END:initComponents

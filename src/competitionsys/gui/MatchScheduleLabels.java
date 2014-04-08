@@ -36,8 +36,11 @@ public class MatchScheduleLabels extends javax.swing.JPanel {
         blue1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         blue1.setForeground(new java.awt.Color(255, 255, 255));
         blue1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        blue1.setText("Station 1");
+        blue1.setText("Blue 1");
+        blue1.setMaximumSize(new java.awt.Dimension(51, 14));
+        blue1.setMinimumSize(new java.awt.Dimension(51, 14));
         blue1.setOpaque(true);
+        blue1.setPreferredSize(new java.awt.Dimension(51, 14));
 
         matchNumber.setBackground(new java.awt.Color(0, 0, 0));
         matchNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -50,36 +53,48 @@ public class MatchScheduleLabels extends javax.swing.JPanel {
         blue2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         blue2.setForeground(new java.awt.Color(255, 255, 255));
         blue2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        blue2.setText("Station 2");
+        blue2.setText("Blue 2");
         blue2.setOpaque(true);
 
         blue3.setBackground(new java.awt.Color(0, 0, 0));
         blue3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         blue3.setForeground(new java.awt.Color(255, 255, 255));
         blue3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        blue3.setText("Station 3");
+        blue3.setText("Blue 3");
+        blue3.setMaximumSize(new java.awt.Dimension(51, 14));
+        blue3.setMinimumSize(new java.awt.Dimension(51, 14));
         blue3.setOpaque(true);
+        blue3.setPreferredSize(new java.awt.Dimension(51, 14));
 
         red1.setBackground(new java.awt.Color(0, 0, 0));
         red1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         red1.setForeground(new java.awt.Color(255, 255, 255));
         red1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        red1.setText("Station 1");
+        red1.setText("Red 1");
+        red1.setMaximumSize(new java.awt.Dimension(51, 14));
+        red1.setMinimumSize(new java.awt.Dimension(51, 14));
         red1.setOpaque(true);
+        red1.setPreferredSize(new java.awt.Dimension(51, 14));
 
         red2.setBackground(new java.awt.Color(0, 0, 0));
         red2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         red2.setForeground(new java.awt.Color(255, 255, 255));
         red2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        red2.setText("Station 2");
+        red2.setText("Red 2");
+        red2.setMaximumSize(new java.awt.Dimension(51, 14));
+        red2.setMinimumSize(new java.awt.Dimension(51, 14));
         red2.setOpaque(true);
+        red2.setPreferredSize(new java.awt.Dimension(51, 14));
 
         red3.setBackground(new java.awt.Color(0, 0, 0));
         red3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         red3.setForeground(new java.awt.Color(255, 255, 255));
         red3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        red3.setText("Station 3");
+        red3.setText("Red 3");
+        red3.setMaximumSize(new java.awt.Dimension(51, 14));
+        red3.setMinimumSize(new java.awt.Dimension(51, 14));
         red3.setOpaque(true);
+        red3.setPreferredSize(new java.awt.Dimension(51, 14));
 
         battery.setBackground(new java.awt.Color(0, 0, 0));
         battery.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -92,44 +107,47 @@ public class MatchScheduleLabels extends javax.swing.JPanel {
         time.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         time.setForeground(new java.awt.Color(255, 255, 255));
         time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        time.setText("Est. Time");
+        time.setText("Time");
+        time.setMaximumSize(new java.awt.Dimension(51, 14));
+        time.setMinimumSize(new java.awt.Dimension(51, 14));
         time.setOpaque(true);
+        time.setPreferredSize(new java.awt.Dimension(51, 14));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(matchNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(blue1)
+                .addComponent(matchNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(blue1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addComponent(blue2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(blue3)
+                .addComponent(blue3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(red1)
+                .addComponent(red1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(red2)
+                .addComponent(red2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(red3)
+                .addComponent(red3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(battery)
                 .addGap(18, 18, 18)
-                .addComponent(time)
+                .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(blue1)
+                .addComponent(blue1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(blue2)
-                .addComponent(blue3)
-                .addComponent(red1)
-                .addComponent(red2)
-                .addComponent(red3)
+                .addComponent(blue3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(red1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(red2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(red3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(battery)
-                .addComponent(time)
+                .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(matchNumber))
         );
     }// </editor-fold>//GEN-END:initComponents

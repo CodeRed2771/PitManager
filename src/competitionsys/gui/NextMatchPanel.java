@@ -13,44 +13,46 @@ public class NextMatchPanel extends javax.swing.JPanel {
 
     private static ArrayList<Match> matches;
     private int page = 1;
-    Batteries batts;
+    private Batteries batteries;
 
     /**
      * Creates new form NextMatchPanel
      */
-    public NextMatchPanel(){//Batteries batts) {
+    public NextMatchPanel() {
         initComponents();
-//        matches = Competition.getInstance().getCodeRedSchedule();
-//        this.batts = batts;
-//        refresh();
     }
 
-    public static void notifyOf2771Match(Match match) {
-//        if (!matches.contains(match)) {
-//            matches.add(match);
-//        }
+    public void init(Batteries batteries) {
+        matches = Competition.getInstance().getCodeRedSchedule();
+        this.batteries = batteries;
+        refresh();
     }
 
     private void refresh() {
-//        Match match = matches.get(page - 1);
-//        Competition.getInstance().setNextCodeRedMatch(page - 1);
-//        if (batts != null) {
-//            batts.refresh();
-//        }
-//        nextMatchLabel.setText(String.valueOf(match.getMatchNumber()));
-//        if (match.getBlueStation1() == 2771 || match.getBlueStation2() == 2771
-//                || match.getBlueStation3() == 2771) {
-//            colorPanel.setBackground(Color.BLUE);
-//            allianceLabel.setForeground(Color.BLUE);
-//            allianceLabel.setText("BLUE ALLIANCE");
-//        } else {
-//            colorPanel.setBackground(Color.RED);
-//            allianceLabel.setForeground(Color.RED);
-//            allianceLabel.setText("RED ALLIANCE");
-//        }
-//        batteryLabel.setText("Battery: " + match.getBattery().getBatteryLetter());
-//        estimatedTimeLabel.setText("Time: " + match.getMatchTime());
-//        matchBar.setLabels(match);
+        if (Competition.getInstance().isMemoryInitialized()) {
+            Match match = matches.get(page - 1);
+            Competition.getInstance().setNextCodeRedMatch(page - 1);
+
+            nextMatchLabel.setText(String.valueOf(match.getMatchNumber()));
+            if (match.getBlueStation1() == 2771 || match.getBlueStation2() == 2771
+                    || match.getBlueStation3() == 2771) {
+                colorPanel.setBackground(Color.BLUE);
+                allianceLabel.setForeground(Color.BLUE);
+                allianceLabel.setText("BLUE ALLIANCE");
+            } else {
+                colorPanel.setBackground(Color.RED);
+                allianceLabel.setForeground(Color.RED);
+                allianceLabel.setText("RED ALLIANCE");
+            }
+
+            batteryLabel.setText("Battery: " + match.getBattery().getBatteryLetter());
+            estimatedTimeLabel.setText("Time: " + match.getMatchTime());
+            matchBar.setLabels(match);
+            batteries.repaint();
+        }
+        if (batteries != null) {
+            batteries.refresh();
+        }
     }
 
     /**
@@ -78,8 +80,12 @@ public class NextMatchPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 0, 0));
 
         colorPanel.setBackground(new java.awt.Color(255, 0, 0));
+        colorPanel.setMaximumSize(new java.awt.Dimension(624, 239));
+        colorPanel.setMinimumSize(new java.awt.Dimension(624, 239));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setMaximumSize(new java.awt.Dimension(604, 217));
+        jPanel1.setMinimumSize(new java.awt.Dimension(604, 217));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -95,6 +101,9 @@ public class NextMatchPanel extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Alliance:");
+        jLabel3.setMaximumSize(new java.awt.Dimension(265, 32));
+        jLabel3.setMinimumSize(new java.awt.Dimension(265, 32));
+        jLabel3.setPreferredSize(new java.awt.Dimension(265, 32));
 
         batteryLabel.setFont(new java.awt.Font("Tahoma", 1, 26)); // NOI18N
         batteryLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,11 +112,17 @@ public class NextMatchPanel extends javax.swing.JPanel {
         estimatedTimeLabel.setFont(new java.awt.Font("Tahoma", 1, 26)); // NOI18N
         estimatedTimeLabel.setForeground(new java.awt.Color(255, 255, 255));
         estimatedTimeLabel.setText("Time:");
+        estimatedTimeLabel.setMaximumSize(new java.awt.Dimension(380, 32));
+        estimatedTimeLabel.setMinimumSize(new java.awt.Dimension(380, 32));
+        estimatedTimeLabel.setPreferredSize(new java.awt.Dimension(380, 32));
 
         allianceLabel.setFont(new java.awt.Font("Tahoma", 1, 26)); // NOI18N
         allianceLabel.setForeground(new java.awt.Color(255, 0, 0));
         allianceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         allianceLabel.setText("RED ALLIANCE");
+        allianceLabel.setMaximumSize(new java.awt.Dimension(265, 32));
+        allianceLabel.setMinimumSize(new java.awt.Dimension(265, 32));
+        allianceLabel.setPreferredSize(new java.awt.Dimension(265, 32));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,18 +166,18 @@ public class NextMatchPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))
-                            .addComponent(estimatedTimeLabel)
-                            .addComponent(batteryLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(allianceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(allianceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(batteryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(estimatedTimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 21, Short.MAX_VALUE)
                         .addComponent(matchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -183,13 +198,13 @@ public class NextMatchPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton1)
                                 .addComponent(jButton2))
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(allianceLabel)
+                        .addComponent(allianceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(batteryLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(estimatedTimeLabel)
+                        .addComponent(estimatedTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)))
                 .addComponent(matchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -225,17 +240,17 @@ public class NextMatchPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        if (page > 1) {
-//            page--;
-//            refresh();
-//        }
+        if (page > 1) {
+            page--;
+            refresh();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//        if (page < matches.size()) {
-//            page++;
-//            refresh();
-//        }
+        if (page < matches.size()) {
+            page++;
+            refresh();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

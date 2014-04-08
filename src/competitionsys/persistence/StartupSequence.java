@@ -70,5 +70,6 @@ public class StartupSequence {
         }
         Competition.getInstance().initCodeRedSchedule();
         Competition.getInstance().setNextCodeRedMatch(0);
+        Competition.getInstance().setMemoryInitialized(true);
     }
 }

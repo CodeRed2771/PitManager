@@ -24,23 +24,21 @@
           <Component id="pageNumberLabel" alignment="0" max="32767" attributes="0"/>
           <Component id="bottomSeparator" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="labels" max="32767" attributes="0"/>
-                      <Component id="row1" min="-2" pref="561" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="row2" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row3" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row4" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row5" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row6" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row7" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row8" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row9" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row10" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row11" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row12" min="-2" pref="561" max="-2" attributes="0"/>
-                  <Component id="row13" min="-2" pref="561" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="row1" pref="561" max="32767" attributes="0"/>
+                  <Component id="row2" pref="561" max="32767" attributes="0"/>
+                  <Component id="row3" pref="561" max="32767" attributes="0"/>
+                  <Component id="row4" pref="561" max="32767" attributes="0"/>
+                  <Component id="row5" pref="561" max="32767" attributes="0"/>
+                  <Component id="row6" pref="561" max="32767" attributes="0"/>
+                  <Component id="row7" pref="561" max="32767" attributes="0"/>
+                  <Component id="row8" pref="561" max="32767" attributes="0"/>
+                  <Component id="row9" pref="561" max="32767" attributes="0"/>
+                  <Component id="row10" pref="561" max="32767" attributes="0"/>
+                  <Component id="row11" pref="561" max="32767" attributes="0"/>
+                  <Component id="row12" pref="561" max="32767" attributes="0"/>
+                  <Component id="row13" pref="561" max="32767" attributes="0"/>
+                  <Component id="matchScheduleLabels1" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="sideSeparator" min="-2" max="-2" attributes="0"/>
@@ -66,7 +64,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labels" min="-2" max="-2" attributes="0"/>
+                      <Component id="matchScheduleLabels1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="row1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -171,8 +169,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pageDownButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="competitionsys.gui.MatchScheduleLabels" name="labels">
-    </Component>
     <Component class="competitionsys.gui.MatchScheduleRow" name="row1">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -263,6 +259,8 @@
           <Dimension value="[551, 14]"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="competitionsys.gui.MatchScheduleLabels" name="matchScheduleLabels1">
     </Component>
   </SubComponents>
 </Form>
