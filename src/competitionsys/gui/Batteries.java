@@ -8,6 +8,9 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 /**
@@ -19,6 +22,8 @@ public class Batteries extends javax.swing.JPanel {
     ArrayList<Match> matches;
     ArrayList<Battery> batteries;
 
+    int[] manualChange;
+
     /**
      * Creates new form Batteries
      */
@@ -29,6 +34,9 @@ public class Batteries extends javax.swing.JPanel {
         if (matches == null) {
             matches = new ArrayList<>();
         }
+        manualChange = new int[2];
+        manualChange[0] = -1;
+        addMouseListener(new Batteries.MouseListener());
         repaint();
     }
 
@@ -62,13 +70,19 @@ public class Batteries extends javax.swing.JPanel {
             int nextMatch = Competition.getInstance().getNextCodeRedMatch();
             FontMetrics metrics = g.getFontMetrics();
             for (int i = nextMatch; i < nextMatch + batteries.size(); i++) {
-                System.out.println("Next Match: " + nextMatch + "\ti: " + i + "\tBatteries Size: "+batteries.size());
                 int[] pos = convertBattToPos(i - nextMatch);
                 Battery battery = batteries.get(wrapIndex(i));
                 if (pos[0] == -1) {
                     g.setColor(Color.white);
                     g.drawString(battery.getBatteryLetter(), (130 - metrics.stringWidth(battery.getBatteryLetter())) / 2 + 465, 100);
+                    battery.setCharged(false);
                 } else {
+                    if (pos[0] == manualChange[0] && pos[1] == manualChange[1]) {
+                        battery.setCharged(!battery.isCharged());
+                        manualChange[0] = -1;
+                    } else if (pos[0] == 0 && pos[1] == 0) {
+                        battery.setCharged(true);
+                    }
                     g.setColor(battery.isCharged() ? Color.green : Color.red);
                     g.fillRect(240 + pos[0] * 60, 50 + pos[1] * 60, 60, 60);
                     g.setColor(Color.white);
@@ -93,7 +107,6 @@ public class Batteries extends javax.swing.JPanel {
 
     public int[] convertBattToPos(int index) {
         int i = index + Competition.getInstance().getNextCodeRedMatch();
-        System.out.println("i: " + i);
         if (i == 0) {
             int[] a = {-1, 0};
             return a;
@@ -166,5 +179,67 @@ public class Batteries extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+private class MouseListener extends MouseAdapter implements MouseMotionListener {
 
+        @Override
+        public void mousePressed(MouseEvent e) {
+            int x = e.getX(), y = e.getY();
+            if (x > 240 && x < 300) {
+                if (y > 50 && y < 110) {
+                    manualChange[0] = 0;
+                    manualChange[1] = 0;
+                } else if (y > 110 && y < 170) {
+                    manualChange[0] = 0;
+                    manualChange[1] = 1;
+                } else if (y > 170 && y < 230) {
+                    manualChange[0] = 0;
+                    manualChange[1] = 2;
+                } else if (y > 230 && y < 290) {
+                    manualChange[0] = 0;
+                    manualChange[1] = 3;
+                } else {
+                    return;
+                }
+            } else if (x > 300 && x < 360) {
+                if (y > 50 && y < 110) {
+                    manualChange[0] = 1;
+                    manualChange[1] = 0;
+                } else if (y > 110 && y < 170) {
+                    manualChange[0] = 1;
+                    manualChange[1] = 1;
+                } else if (y > 170 && y < 230) {
+                    manualChange[0] = 1;
+                    manualChange[1] = 2;
+                } else if (y > 230 && y < 290) {
+                    manualChange[0] = 1;
+                    manualChange[1] = 3;
+                } else {
+                    return;
+                }
+            } else if (x > 360 && x < 420) {
+                if (y > 50 && y < 110) {
+                    manualChange[0] = 2;
+                    manualChange[1] = 0;
+                } else if (y > 110 && y < 170) {
+                    manualChange[0] = 2;
+                    manualChange[1] = 1;
+                } else if (y > 170 && y < 230) {
+                    manualChange[0] = 2;
+                    manualChange[1] = 2;
+                } else if (y > 230 && y < 290) {
+                    manualChange[0] = 2;
+                    manualChange[1] = 3;
+                } else {
+                    return;
+                }
+            } else {
+                return;
+            }
+            refresh();
+        }
+
+        @Override
+        public void mouseMoved(MouseEvent e) {
+        }
+    }
 }

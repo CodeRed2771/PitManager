@@ -3,18 +3,34 @@ package competitionsys.gui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Michael
  */
-public class Eliminations extends javax.swing.JPanel {
+public class Eliminations extends javax.swing.JPanel implements Runnable {
+
+    ServerSocket ss;
+    String data = "";
 
     /**
      * Creates new form Eliminations
      */
     public Eliminations() {
         initComponents();
+        try {
+            ss = new ServerSocket(27711);
+            Thread t = new Thread(this);
+            t.start();
+        } catch (IOException ex) {
+            Logger.getLogger(Eliminations.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -26,25 +42,32 @@ public class Eliminations extends javax.swing.JPanel {
     }
 
     public void draw(Graphics g) {
+        String[] data = this.data.split(":");
         g.setColor(Color.white);
+        int v = 0;
         for (int i = 20; i < 360; i += 100) {
             g.drawRect(20, i, 200, 40);
+            for (int j = 0; j < 3; j++) {
+                if (!"".equals(this.data)) {
+                    g.drawString(data[v * 3 + j], 30 + (50 * j), i + 20);
+                }
+            }
             g.drawRect(20, i + 40, 200, 40);
+            v++;
+            for (int j = 0; j < 3; j++) {
+                if (!"".equals(this.data)) {
+                    g.drawString(data[v * 3 + j], 30 + (50 * j), i + 60);
+                }
+            }
+            v++;
         }
+
         for (int i = 70; i < 330; i += 200) {
             g.drawRect(240, i, 200, 40);
             g.drawRect(240, i + 40, 200, 40);
         }
         g.drawRect(460, 170, 200, 40);
         g.drawRect(460, 210, 200, 40);
-//        g.drawRect(20, 20, 200, 40);
-//        g.drawRect(20, 60, 200, 40);
-//        g.drawRect(20, 120, 200, 40);
-//        g.drawRect(20, 160, 200, 40);
-//        g.drawRect(20, 220, 200, 40);
-//        g.drawRect(20, 260, 200, 40);
-//        g.drawRect(20, 320, 200, 40);
-//        g.drawRect(20, 360, 200, 40);
     }
 
     /**
@@ -73,4 +96,19 @@ public class Eliminations extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                Socket s = ss.accept();
+                DataInputStream din = new DataInputStream(s.getInputStream());
+                data = din.readUTF();
+                repaint();
+                din.close();
+                s.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Eliminations.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }
