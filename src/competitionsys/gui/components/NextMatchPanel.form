@@ -231,7 +231,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="competitionsys.gui.MatchScheduleRow" name="matchBar">
+            <Component class="competitionsys.gui.components.MatchScheduleRow" name="matchBar">
             </Component>
             <Component class="javax.swing.JLabel" name="allianceLabel">
               <Properties>

@@ -49,13 +49,13 @@ public final class ChatGUI extends javax.swing.JPanel {
         chatWindow = new javax.swing.JTextPane();
         inputField = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(41, 41, 41));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("IP:");
 
-        ipField.setBackground(new java.awt.Color(0, 0, 0));
+        ipField.setBackground(new java.awt.Color(20, 20, 20));
         ipField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ipField.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -63,7 +63,7 @@ public final class ChatGUI extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Name:");
 
-        nickNameField.setBackground(new java.awt.Color(0, 0, 0));
+        nickNameField.setBackground(new java.awt.Color(20, 20, 20));
         nickNameField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         nickNameField.setForeground(new java.awt.Color(255, 255, 255));
         nickNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +72,7 @@ public final class ChatGUI extends javax.swing.JPanel {
             }
         });
 
-        connectButton.setBackground(new java.awt.Color(0, 0, 0));
+        connectButton.setBackground(new java.awt.Color(41, 41, 41));
         connectButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         connectButton.setForeground(new java.awt.Color(255, 255, 255));
         connectButton.setText("Connect");
@@ -83,7 +83,7 @@ public final class ChatGUI extends javax.swing.JPanel {
             }
         });
 
-        disconnectButton.setBackground(new java.awt.Color(0, 0, 0));
+        disconnectButton.setBackground(new java.awt.Color(41, 41, 41));
         disconnectButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         disconnectButton.setForeground(new java.awt.Color(255, 255, 255));
         disconnectButton.setText("Disconnect");
@@ -95,10 +95,10 @@ public final class ChatGUI extends javax.swing.JPanel {
             }
         });
 
-        iAmServerButton.setBackground(new java.awt.Color(0, 0, 0));
+        iAmServerButton.setBackground(new java.awt.Color(41, 41, 41));
         iAmServerButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         iAmServerButton.setForeground(new java.awt.Color(255, 255, 255));
-        iAmServerButton.setText("Start Server");
+        iAmServerButton.setText("Server");
         iAmServerButton.setFocusable(false);
         iAmServerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,11 +107,11 @@ public final class ChatGUI extends javax.swing.JPanel {
         });
 
         chatWindow.setEditable(false);
-        chatWindow.setBackground(new java.awt.Color(0, 0, 0));
+        chatWindow.setBackground(new java.awt.Color(20, 20, 20));
         chatWindow.setFocusable(false);
         jScrollPane1.setViewportView(chatWindow);
 
-        inputField.setBackground(new java.awt.Color(0, 0, 0));
+        inputField.setBackground(new java.awt.Color(20, 20, 20));
         inputField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         inputField.setForeground(new java.awt.Color(255, 255, 255));
         inputField.addActionListener(new java.awt.event.ActionListener() {
@@ -135,8 +135,9 @@ public final class ChatGUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputField)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(3, 3, 3)
                         .addComponent(ipField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,14 +145,12 @@ public final class ChatGUI extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addGap(3, 3, 3)
                         .addComponent(nickNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(connectButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(disconnectButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(iAmServerButton))
-                    .addComponent(inputField))
-                .addContainerGap())
+                        .addComponent(iAmServerButton))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

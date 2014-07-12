@@ -1,4 +1,4 @@
-package competitionsys.gui;
+package competitionsys.gui.components;
 
 import competitionsys.persistence.Competition;
 import competitionsys.persistence.Match;
@@ -71,7 +71,7 @@ public class NextMatchPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         batteryLabel = new javax.swing.JLabel();
         estimatedTimeLabel = new javax.swing.JLabel();
-        matchBar = new competitionsys.gui.MatchScheduleRow();
+        matchBar = new competitionsys.gui.components.MatchScheduleRow();
         allianceLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -265,7 +265,7 @@ public class NextMatchPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private competitionsys.gui.MatchScheduleRow matchBar;
+    private competitionsys.gui.components.MatchScheduleRow matchBar;
     private javax.swing.JLabel nextMatchLabel;
     // End of variables declaration//GEN-END:variables
 

@@ -1,4 +1,4 @@
-package competitionsys.gui;
+package competitionsys.gui.components;
 
 import java.awt.Color;
 import java.awt.Graphics;
