@@ -40,6 +40,7 @@ public class Window extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Pit Manager");
         setBackground(new java.awt.Color(41, 41, 41));
+        setMinimumSize(new java.awt.Dimension(1150, 750));
 
         cardPanel.setBackground(new java.awt.Color(0, 0, 0));
         cardPanel.setLayout(new java.awt.CardLayout());

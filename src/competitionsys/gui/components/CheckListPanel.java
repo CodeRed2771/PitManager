@@ -11,6 +11,11 @@ public class CheckListPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    private void reset() {
+        // call each JCheckBox.setSelected(false) here.
+    }
+    
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -20,44 +25,294 @@ public class CheckListPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        resetButton = new javax.swing.JButton();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jCheckBox8 = new javax.swing.JCheckBox();
+        jCheckBox9 = new javax.swing.JCheckBox();
+        jCheckBox10 = new javax.swing.JCheckBox();
+        jCheckBox11 = new javax.swing.JCheckBox();
+        jCheckBox12 = new javax.swing.JCheckBox();
+        jCheckBox13 = new javax.swing.JCheckBox();
+        jCheckBox14 = new javax.swing.JCheckBox();
+        jCheckBox15 = new javax.swing.JCheckBox();
+        jCheckBox16 = new javax.swing.JCheckBox();
+        jCheckBox17 = new javax.swing.JCheckBox();
+        jCheckBox18 = new javax.swing.JCheckBox();
+        jCheckBox19 = new javax.swing.JCheckBox();
+        jCheckBox20 = new javax.swing.JCheckBox();
+        jCheckBox21 = new javax.swing.JCheckBox();
+        jCheckBox22 = new javax.swing.JCheckBox();
+        jCheckBox23 = new javax.swing.JCheckBox();
+        jCheckBox24 = new javax.swing.JCheckBox();
+        jCheckBox25 = new javax.swing.JCheckBox();
+        jCheckBox26 = new javax.swing.JCheckBox();
+        jCheckBox27 = new javax.swing.JCheckBox();
 
-        jScrollPane1.setBackground(new java.awt.Color(41, 41, 41));
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        setBackground(new java.awt.Color(20, 20, 20));
+        setForeground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox1.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setText("jCheckBox1");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 323, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
-        );
+        resetButton.setBackground(new java.awt.Color(20, 20, 20));
+        resetButton.setForeground(new java.awt.Color(255, 255, 255));
+        resetButton.setText("RESET");
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetButtonActionPerformed(evt);
+            }
+        });
 
-        jScrollPane1.setViewportView(jPanel1);
+        jCheckBox2.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox2.setText("jCheckBox1");
+
+        jCheckBox3.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox3.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox3.setText("jCheckBox1");
+
+        jCheckBox4.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox4.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox4.setText("jCheckBox1");
+
+        jCheckBox5.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox5.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox5.setText("jCheckBox1");
+
+        jCheckBox6.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox6.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox6.setText("jCheckBox1");
+
+        jCheckBox7.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox7.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox7.setText("jCheckBox1");
+
+        jCheckBox8.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox8.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox8.setText("jCheckBox1");
+
+        jCheckBox9.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox9.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox9.setText("jCheckBox1");
+
+        jCheckBox10.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox10.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox10.setText("jCheckBox1");
+
+        jCheckBox11.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox11.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox11.setText("jCheckBox1");
+
+        jCheckBox12.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox12.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox12.setText("jCheckBox1");
+
+        jCheckBox13.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox13.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox13.setText("jCheckBox1");
+
+        jCheckBox14.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox14.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox14.setText("jCheckBox1");
+
+        jCheckBox15.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox15.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox15.setText("jCheckBox1");
+
+        jCheckBox16.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox16.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox16.setText("jCheckBox1");
+
+        jCheckBox17.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox17.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox17.setText("jCheckBox1");
+
+        jCheckBox18.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox18.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox18.setText("jCheckBox1");
+
+        jCheckBox19.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox19.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox19.setText("jCheckBox1");
+
+        jCheckBox20.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox20.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox20.setText("jCheckBox1");
+
+        jCheckBox21.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox21.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox21.setText("jCheckBox1");
+
+        jCheckBox22.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox22.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox22.setText("jCheckBox1");
+
+        jCheckBox23.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox23.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox23.setText("jCheckBox1");
+
+        jCheckBox24.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox24.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox24.setText("jCheckBox1");
+
+        jCheckBox25.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox25.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox25.setText("jCheckBox1");
+
+        jCheckBox26.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox26.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox26.setText("jCheckBox1");
+
+        jCheckBox27.setBackground(new java.awt.Color(20, 20, 20));
+        jCheckBox27.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox27.setText("jCheckBox1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(resetButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox1)
+                            .addComponent(jCheckBox2)
+                            .addComponent(jCheckBox3)
+                            .addComponent(jCheckBox4)
+                            .addComponent(jCheckBox5)
+                            .addComponent(jCheckBox6)
+                            .addComponent(jCheckBox7)
+                            .addComponent(jCheckBox14)
+                            .addComponent(jCheckBox13)
+                            .addComponent(jCheckBox12)
+                            .addComponent(jCheckBox11)
+                            .addComponent(jCheckBox10)
+                            .addComponent(jCheckBox9)
+                            .addComponent(jCheckBox8)
+                            .addComponent(jCheckBox21)
+                            .addComponent(jCheckBox20)
+                            .addComponent(jCheckBox19)
+                            .addComponent(jCheckBox18)
+                            .addComponent(jCheckBox17)
+                            .addComponent(jCheckBox16)
+                            .addComponent(jCheckBox15)
+                            .addComponent(jCheckBox25)
+                            .addComponent(jCheckBox24)
+                            .addComponent(jCheckBox23)
+                            .addComponent(jCheckBox22)
+                            .addComponent(jCheckBox26)
+                            .addComponent(jCheckBox27))
+                        .addGap(0, 245, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(resetButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox27)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        reset();
+    }//GEN-LAST:event_resetButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox10;
+    private javax.swing.JCheckBox jCheckBox11;
+    private javax.swing.JCheckBox jCheckBox12;
+    private javax.swing.JCheckBox jCheckBox13;
+    private javax.swing.JCheckBox jCheckBox14;
+    private javax.swing.JCheckBox jCheckBox15;
+    private javax.swing.JCheckBox jCheckBox16;
+    private javax.swing.JCheckBox jCheckBox17;
+    private javax.swing.JCheckBox jCheckBox18;
+    private javax.swing.JCheckBox jCheckBox19;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox20;
+    private javax.swing.JCheckBox jCheckBox21;
+    private javax.swing.JCheckBox jCheckBox22;
+    private javax.swing.JCheckBox jCheckBox23;
+    private javax.swing.JCheckBox jCheckBox24;
+    private javax.swing.JCheckBox jCheckBox25;
+    private javax.swing.JCheckBox jCheckBox26;
+    private javax.swing.JCheckBox jCheckBox27;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JCheckBox jCheckBox8;
+    private javax.swing.JCheckBox jCheckBox9;
+    private javax.swing.JButton resetButton;
     // End of variables declaration//GEN-END:variables
 
 }

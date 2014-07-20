@@ -11,35 +11,47 @@ import javax.swing.BoxLayout;
  *
  * @author Michael
  */
-public class NewMatchSchedulePanel extends javax.swing.JPanel {
+public class MatchSchedulePanel extends javax.swing.JPanel {
 
     private ArrayList<Match> matches;
-    private ArrayList<NewMatchScheduleRow> rows;
+    private ArrayList<MatchScheduleRow> rows;
+    private int lastIndex = 0;
+    private boolean notFirst = false;
 
     /**
      * Creates new form MatchSchedulePanel
      */
-    public NewMatchSchedulePanel() {
+    public MatchSchedulePanel() {
         initComponents();
-        init();
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
     }
 
-    private void init() {
+    public void init() {
         matches = Competition.getInstance().getMatches();
         rows = new ArrayList<>();
         setupRows();
     }
 
     private void setupRows() {
-        jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
-        jPanel1.add(Box.createRigidArea(new Dimension(0, 6)));
+        schedulePanel.setLayout(new BoxLayout(schedulePanel, BoxLayout.Y_AXIS));
+        schedulePanel.add(Box.createRigidArea(new Dimension(0, 6)));
         for (Match match : matches) {
-            NewMatchScheduleRow msr = new NewMatchScheduleRow();
+            MatchScheduleRow msr = new MatchScheduleRow();
             msr.setLabels(match);
-            jPanel1.add(msr);
-            jPanel1.add(Box.createRigidArea(new Dimension(0, 6)));
+            schedulePanel.add(msr);
+            schedulePanel.add(Box.createRigidArea(new Dimension(0, 6)));
             rows.add(msr);
         }
+    }
+
+    public void updateCurrentMatch(int index) {
+        rows.get(lastIndex).setHighlighted(false);
+        rows.get(index).setHighlighted(true);
+        lastIndex = index;
+        if (notFirst) {
+            jScrollPane1.getVerticalScrollBar().setValue(6 + 14 * index + 6 * index - 6);
+        }
+        notFirst = true;
     }
 
     /**
@@ -55,8 +67,8 @@ public class NewMatchSchedulePanel extends javax.swing.JPanel {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
-        newMatchScheduleLabels1 = new competitionsys.gui.components.NewMatchScheduleLabels();
+        schedulePanel = new javax.swing.JPanel();
+        newMatchScheduleLabels1 = new competitionsys.gui.components.MatchScheduleLabels();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -71,22 +83,22 @@ public class NewMatchSchedulePanel extends javax.swing.JPanel {
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setMinimumSize(new java.awt.Dimension(100, 100));
 
-        jPanel1.setBackground(new java.awt.Color(20, 20, 20));
-        jPanel1.setMaximumSize(new java.awt.Dimension(626, 998));
-        jPanel1.setMinimumSize(new java.awt.Dimension(626, 998));
+        schedulePanel.setBackground(new java.awt.Color(20, 20, 20));
+        schedulePanel.setMaximumSize(new java.awt.Dimension(626, 998));
+        schedulePanel.setMinimumSize(new java.awt.Dimension(626, 998));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 626, Short.MAX_VALUE)
+        javax.swing.GroupLayout schedulePanelLayout = new javax.swing.GroupLayout(schedulePanel);
+        schedulePanel.setLayout(schedulePanelLayout);
+        schedulePanelLayout.setHorizontalGroup(
+            schedulePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 692, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        schedulePanelLayout.setVerticalGroup(
+            schedulePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 998, Short.MAX_VALUE)
         );
 
-        jScrollPane1.setViewportView(jPanel1);
+        jScrollPane1.setViewportView(schedulePanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -95,8 +107,10 @@ public class NewMatchSchedulePanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(newMatchScheduleLabels1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(newMatchScheduleLabels1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,9 +127,9 @@ public class NewMatchSchedulePanel extends javax.swing.JPanel {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private competitionsys.gui.components.NewMatchScheduleLabels newMatchScheduleLabels1;
+    private competitionsys.gui.components.MatchScheduleLabels newMatchScheduleLabels1;
+    private javax.swing.JPanel schedulePanel;
     // End of variables declaration//GEN-END:variables
 
 }

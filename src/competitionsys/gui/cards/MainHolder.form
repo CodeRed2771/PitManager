@@ -48,6 +48,9 @@
   </Layout>
   <SubComponents>
     <Component class="competitionsys.gui.cards.Main" name="main">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new competitionsys.gui.cards.Main(this)"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

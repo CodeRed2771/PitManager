@@ -56,16 +56,18 @@ public final class ChatGUI extends javax.swing.JPanel {
         jLabel2.setText("IP:");
 
         ipField.setBackground(new java.awt.Color(20, 20, 20));
-        ipField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ipField.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         ipField.setForeground(new java.awt.Color(255, 255, 255));
+        ipField.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Name:");
 
         nickNameField.setBackground(new java.awt.Color(20, 20, 20));
-        nickNameField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        nickNameField.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         nickNameField.setForeground(new java.awt.Color(255, 255, 255));
+        nickNameField.setCaretColor(new java.awt.Color(255, 255, 255));
         nickNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nickNameFieldActionPerformed(evt);
@@ -114,6 +116,7 @@ public final class ChatGUI extends javax.swing.JPanel {
         inputField.setBackground(new java.awt.Color(20, 20, 20));
         inputField.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         inputField.setForeground(new java.awt.Color(255, 255, 255));
+        inputField.setCaretColor(new java.awt.Color(255, 255, 255));
         inputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputFieldActionPerformed(evt);

@@ -22,7 +22,7 @@ public class MainHolder extends javax.swing.JPanel implements GUICard {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        main = new competitionsys.gui.cards.Main();
+        main = new competitionsys.gui.cards.Main(this);
 
         setBackground(new java.awt.Color(255, 0, 0));
         setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N

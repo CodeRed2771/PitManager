@@ -3,12 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/components/NewMatchSchedulePanel.java</file>
-            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/components/CheckListPanel.java</file>
-            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/mediumcodered.png</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/chat/StartServerGUI.java</file>
             <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/Window.java</file>
-            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/chat/ChatGUI.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/cards/EliminationHolder.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/cards/SetupNewCompetitionPage2.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/persistence/Battery.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/cards/SetupNewCompetition.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/pit.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/components/Eliminations.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/version.properties</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/components/MatchSchedulePanel.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/persistence/Competition.java</file>
             <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/cards/Main.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/persistence/ReadCSV.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/components/MatchScheduleRow.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/persistence/StartupSequence.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/mediumcodered.png</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/GUICard.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/components/MatchScheduleLabels.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/cards/Eliminations.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/cards/LoadCompetition.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/components/CheckListContainer.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/components/Batteries.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/chat/ChatGUI.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/cards/TBAInfo.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/components/CheckListPanel.java</file>
+            <file>file:/C:/Users/Michael/Documents/NetBeansProjects/CodeRedRobotics/Tools/CompetitionPitNode/src/competitionsys/gui/cards/MainHolder.java</file>
         </group>
     </open-files>
 </project-private>
