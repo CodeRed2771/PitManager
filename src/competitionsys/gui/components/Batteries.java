@@ -26,7 +26,7 @@ public class Batteries extends javax.swing.JPanel {
     private final int OFFSET_Y = 10; // Y starting position for the charging station.
     private final int MAIN_SQUARE_SIZE = 60; // the length in pixels of one side of a charging square.
     private final int TOTAL_ROBOT_WIDTH = 150; // the length in pixels of the total robot width; borders and inside.
-    private final int TOTAL_ROBOT_HEIGHT = 300; // the length in pixels of the total robot hieght; borders and inside.
+    private final int TOTAL_ROBOT_HEIGHT = 270; // the length in pixels of the total robot hieght; borders and inside.
     private final int ROBOT_BORDER_SIZE = 15; // the width in pixels of the colored border around the robot.
     private final int CHARGER_SLOTS_X = 3; // how many squares are drawn left to right.
     private final int CHARGER_SLOTS_Y = 4; // how many squares are draw top to bottom.
@@ -95,7 +95,23 @@ public class Batteries extends javax.swing.JPanel {
 
             // DRAW ROBOT (GREY), ON TOP OF BORDER
             g.setColor(Color.DARK_GRAY);
-            g.fillRect(OFFSET_X + CHARGER_SLOTS_X * MAIN_SQUARE_SIZE + 25 + ROBOT_BORDER_SIZE, OFFSET_Y + ROBOT_BORDER_SIZE, TOTAL_ROBOT_WIDTH - ROBOT_BORDER_SIZE * 2, TOTAL_ROBOT_HEIGHT - ROBOT_BORDER_SIZE * 2);
+            g.fillRect(OFFSET_X + CHARGER_SLOTS_X * MAIN_SQUARE_SIZE + 25 + ROBOT_BORDER_SIZE, 
+                    OFFSET_Y + ROBOT_BORDER_SIZE + (TOTAL_ROBOT_HEIGHT - 2 * ROBOT_BORDER_SIZE ) / 2, 
+                    TOTAL_ROBOT_WIDTH - ROBOT_BORDER_SIZE * 2, 
+                    (TOTAL_ROBOT_HEIGHT - ROBOT_BORDER_SIZE * 2) / 2);
+            g.fillRect(OFFSET_X + CHARGER_SLOTS_X * MAIN_SQUARE_SIZE + 25 + ROBOT_BORDER_SIZE,
+                    OFFSET_Y + ROBOT_BORDER_SIZE, 
+                    (TOTAL_ROBOT_WIDTH - ROBOT_BORDER_SIZE * 2) / 4,
+                    (TOTAL_ROBOT_HEIGHT - ROBOT_BORDER_SIZE * 2) / 2);
+            g.fillRect(OFFSET_X + CHARGER_SLOTS_X * MAIN_SQUARE_SIZE + 25 + ROBOT_BORDER_SIZE + 3 * (TOTAL_ROBOT_WIDTH - 2 * ROBOT_BORDER_SIZE) / 4,
+                    OFFSET_Y + ROBOT_BORDER_SIZE, 
+                    (TOTAL_ROBOT_WIDTH - ROBOT_BORDER_SIZE * 2) / 4,
+                    (TOTAL_ROBOT_HEIGHT - ROBOT_BORDER_SIZE * 2) / 2);
+            g.setColor(getBackground());
+            g.fillRect(OFFSET_X + CHARGER_SLOTS_X * MAIN_SQUARE_SIZE + 25 + ROBOT_BORDER_SIZE + 
+                    (TOTAL_ROBOT_WIDTH - 2 * ROBOT_BORDER_SIZE) / 4 + ROBOT_BORDER_SIZE, OFFSET_Y, 
+                    (TOTAL_ROBOT_WIDTH - 2 * ROBOT_BORDER_SIZE) / 2 - 2 * ROBOT_BORDER_SIZE, 
+                    (TOTAL_ROBOT_HEIGHT - 2 * ROBOT_BORDER_SIZE) / 2);
 
             // THE REMAINDER OF THIS IF STATEMENT IS THE VERY CONFUSING PROCESS OF DRAWING THE BATTERIES
             ArrayList<String> usedAlready = new ArrayList<>();
@@ -110,7 +126,10 @@ public class Batteries extends javax.swing.JPanel {
                 int[] pos = convertSlotToIndex(currentSlot);
                 if (pos[0] == -1) {
                     g.setColor(Color.white);
-                    g.drawString(battery.getBatteryLetter(), (TOTAL_ROBOT_WIDTH - metrics.stringWidth(battery.getBatteryLetter())) / 2 + OFFSET_X + CHARGER_SLOTS_X * MAIN_SQUARE_SIZE + 25, OFFSET_Y + TOTAL_ROBOT_HEIGHT / 3);
+                    g.drawString(battery.getBatteryLetter(), 
+                            (TOTAL_ROBOT_WIDTH - metrics.stringWidth(battery.getBatteryLetter())) / 2 
+                                    + OFFSET_X + CHARGER_SLOTS_X * MAIN_SQUARE_SIZE 
+                                    + 25, (int) (OFFSET_Y + TOTAL_ROBOT_HEIGHT / 1.15));
                     battery.setCharged(false);
                 } else {
 //                    if (pos[0] == manualChange[0] && pos[1] == manualChange[1]) {

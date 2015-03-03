@@ -1,5 +1,6 @@
-package competitionsys.persistence;
+package competitionsys.persistence.startupsequence;
 
+import competitionsys.persistence.Competition;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Michael
  */
-public class FileIO {
+public class SerializationManager {
 
     public static void writeMemory(String path) {
         try (FileOutputStream fileOut = new FileOutputStream(("".equals(path) ? "pitmanager" : path));
@@ -22,7 +23,7 @@ public class FileIO {
             out.close();
             fileOut.close();
         } catch (IOException e) {
-            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(SerializationManager.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -35,7 +36,7 @@ public class FileIO {
         } catch (InvalidClassException ex) {
             throw new InvalidClassException("Serialized file not valid");
         } catch (ClassNotFoundException | IOException ex) {
-            Logger.getLogger(FileIO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SerializationManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

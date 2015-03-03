@@ -35,6 +35,8 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
     private void setupRows() {
         schedulePanel.setLayout(new BoxLayout(schedulePanel, BoxLayout.Y_AXIS));
         schedulePanel.add(Box.createRigidArea(new Dimension(0, 6)));
+        schedulePanel.add(new MatchScheduleRow().setLabelRow());
+        schedulePanel.add(Box.createRigidArea(new Dimension(0, 6)));
         for (Match match : matches) {
             MatchScheduleRow msr = new MatchScheduleRow();
             msr.setLabels(match);
@@ -68,7 +70,6 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
         jMenu2 = new javax.swing.JMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
         schedulePanel = new javax.swing.JPanel();
-        newMatchScheduleLabels1 = new competitionsys.gui.components.MatchScheduleLabels();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -106,19 +107,11 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(newMatchScheduleLabels1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(newMatchScheduleLabels1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -128,7 +121,6 @@ public class MatchSchedulePanel extends javax.swing.JPanel {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private competitionsys.gui.components.MatchScheduleLabels newMatchScheduleLabels1;
     private javax.swing.JPanel schedulePanel;
     // End of variables declaration//GEN-END:variables
 

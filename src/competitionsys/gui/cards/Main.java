@@ -1,5 +1,6 @@
 package competitionsys.gui.cards;
 
+import competitionsys.BillOfMaterials;
 import competitionsys.persistence.Competition;
 import competitionsys.persistence.Match;
 import java.awt.Color;
@@ -14,26 +15,27 @@ public class Main extends javax.swing.JPanel {
     private static int CURRENT_MATCH = 0;
     private ArrayList<Match> schedule;
 
-    private final MainHolder holder;
+    private MainHolder holder;
     
     /**
      * Creates new form Main
      */
-    public Main(MainHolder holder) {
+    public Main() {
         initComponents();
-        this.holder = holder;
     }
 
-    public void init() {
+    public void init(MainHolder holder) {
         CURRENT_MATCH = Competition.getInstance().getNextCodeRedMatch();
         batteryPanel.init();
         matchSchedulePanel.init();
         schedule = Competition.getInstance().getCodeRedSchedule();
+        this.holder = holder;
+        notes.setText(Competition.getInstance().getNotes());
         refresh();
     }
 
     public void close() {
-
+        Competition.getInstance().setNotes(notes.getText());
     }
 
     public void nowVisible() {
@@ -59,20 +61,18 @@ public class Main extends javax.swing.JPanel {
         nextMatchNumber = new javax.swing.JLabel();
         chatPanel = new competitionsys.chat.ChatGUI();
         matchSchedulePanel = new competitionsys.gui.components.MatchSchedulePanel();
-        checklistLabel = new javax.swing.JLabel();
-        firstLogo = new javax.swing.JLabel();
-        codeRedLogo = new javax.swing.JLabel();
-        notesLabel = new javax.swing.JLabel();
-        checklistPanel = new competitionsys.gui.components.CheckListContainer();
         controlPanel = new javax.swing.JPanel();
-        currentMode = new javax.swing.JComboBox();
         nextButton = new javax.swing.JButton();
-        modeLabel = new javax.swing.JLabel();
         previousButton = new javax.swing.JButton();
-        openSetupButton = new javax.swing.JButton();
+        billOfMaterialsButton = new javax.swing.JButton();
+        batteryPanel = new competitionsys.gui.components.Batteries();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         notesScrollPane = new javax.swing.JScrollPane();
         notes = new javax.swing.JEditorPane();
-        batteryPanel = new competitionsys.gui.components.Batteries();
+        checklistPanel = new competitionsys.gui.components.CheckListContainer();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(41, 41, 41));
 
@@ -127,36 +127,9 @@ public class Main extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        checklistLabel.setBackground(new java.awt.Color(255, 255, 255));
-        checklistLabel.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        checklistLabel.setForeground(new java.awt.Color(255, 255, 255));
-        checklistLabel.setText("Checklist:");
-
-        firstLogo.setBackground(new java.awt.Color(255, 255, 255));
-        firstLogo.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        firstLogo.setForeground(new java.awt.Color(255, 255, 255));
-        firstLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        firstLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/competitionsys/gui/firstlogo.png"))); // NOI18N
-
-        codeRedLogo.setBackground(new java.awt.Color(255, 255, 255));
-        codeRedLogo.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        codeRedLogo.setForeground(new java.awt.Color(255, 255, 255));
-        codeRedLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        codeRedLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/competitionsys/gui/mediumcodered.png"))); // NOI18N
-
-        notesLabel.setBackground(new java.awt.Color(255, 255, 255));
-        notesLabel.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        notesLabel.setForeground(new java.awt.Color(255, 255, 255));
-        notesLabel.setText("Notes:");
-
         controlPanel.setBackground(new java.awt.Color(41, 41, 41));
         controlPanel.setMaximumSize(new java.awt.Dimension(401, 69));
         controlPanel.setMinimumSize(new java.awt.Dimension(401, 69));
-
-        currentMode.setBackground(new java.awt.Color(41, 41, 41));
-        currentMode.setForeground(java.awt.Color.white);
-        currentMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Normal Mode", "Eliminations Mode", "The Blue Alliance Info Lookup" }));
-        currentMode.setFocusable(false);
 
         nextButton.setBackground(new java.awt.Color(41, 41, 41));
         nextButton.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -172,11 +145,6 @@ public class Main extends javax.swing.JPanel {
             }
         });
 
-        modeLabel.setBackground(new java.awt.Color(255, 255, 255));
-        modeLabel.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        modeLabel.setForeground(new java.awt.Color(255, 255, 255));
-        modeLabel.setText("Current Mode:");
-
         previousButton.setBackground(new java.awt.Color(41, 41, 41));
         previousButton.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         previousButton.setForeground(java.awt.Color.white);
@@ -191,42 +159,54 @@ public class Main extends javax.swing.JPanel {
             }
         });
 
-        openSetupButton.setBackground(new java.awt.Color(41, 41, 41));
-        openSetupButton.setForeground(java.awt.Color.white);
-        openSetupButton.setText("Open Setup");
-        openSetupButton.setFocusable(false);
+        billOfMaterialsButton.setBackground(new java.awt.Color(41, 41, 41));
+        billOfMaterialsButton.setForeground(new java.awt.Color(255, 255, 255));
+        billOfMaterialsButton.setText("Open Bill of Materials");
+        billOfMaterialsButton.setFocusable(false);
+        billOfMaterialsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                billOfMaterialsButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(currentMode, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(modeLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(openSetupButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(80, 80, 80)
+                .addContainerGap()
+                .addComponent(billOfMaterialsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(previousButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(previousButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(controlPanelLayout.createSequentialGroup()
-                        .addComponent(openSetupButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(modeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(currentMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(billOfMaterialsButton)
+                    .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(previousButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
+
+        javax.swing.GroupLayout batteryPanelLayout = new javax.swing.GroupLayout(batteryPanel);
+        batteryPanel.setLayout(batteryPanelLayout);
+        batteryPanelLayout.setHorizontalGroup(
+            batteryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        batteryPanelLayout.setVerticalGroup(
+            batteryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 292, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.setBackground(new java.awt.Color(41, 41, 41));
+        jTabbedPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        jPanel1.setBackground(new java.awt.Color(41, 41, 41));
 
         notesScrollPane.setBackground(new java.awt.Color(41, 41, 41));
         notesScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -238,16 +218,28 @@ public class Main extends javax.swing.JPanel {
         notes.setCaretColor(new java.awt.Color(255, 255, 255));
         notesScrollPane.setViewportView(notes);
 
-        javax.swing.GroupLayout batteryPanelLayout = new javax.swing.GroupLayout(batteryPanel);
-        batteryPanel.setLayout(batteryPanelLayout);
-        batteryPanelLayout.setHorizontalGroup(
-            batteryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(notesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(checklistPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
-        batteryPanelLayout.setVerticalGroup(
-            batteryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(notesScrollPane)
+            .addComponent(checklistPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
         );
+
+        jTabbedPane1.addTab("Notes & Checklist", jPanel1);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/competitionsys/gui/firstlogosmall.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/competitionsys/gui/mediumcodered.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -264,26 +256,19 @@ public class Main extends javax.swing.JPanel {
                         .addGap(195, 195, 195)
                         .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(chatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(notesLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(notesScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
-                    .addComponent(batteryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(checklistPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(checklistLabel)
-                                .addGap(330, 330, 330))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firstLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(codeRedLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(455, 455, 455)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(batteryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(553, 553, 553))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTabbedPane1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -291,29 +276,19 @@ public class Main extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(nextMatchInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firstLogo)
-                            .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(codeRedLogo))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(batteryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(notesLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(checklistLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checklistPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(notesScrollPane))
-                .addGap(11, 11, 11))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(batteryPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(nextMatchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(matchSchedulePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
+                .addComponent(matchSchedulePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -333,6 +308,10 @@ public class Main extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_nextButtonActionPerformed
 
+    private void billOfMaterialsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billOfMaterialsButtonActionPerformed
+        new BillOfMaterials().setVisible(true);
+    }//GEN-LAST:event_billOfMaterialsButtonActionPerformed
+
     private void refresh() {
         Competition.getInstance().setNextCodeRedMatch(CURRENT_MATCH);
         Match match = schedule.get(CURRENT_MATCH);
@@ -348,24 +327,22 @@ public class Main extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private competitionsys.gui.components.Batteries batteryPanel;
+    private javax.swing.JButton billOfMaterialsButton;
     private competitionsys.chat.ChatGUI chatPanel;
-    private javax.swing.JLabel checklistLabel;
     private competitionsys.gui.components.CheckListContainer checklistPanel;
-    private javax.swing.JLabel codeRedLogo;
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JComboBox currentMode;
-    private javax.swing.JLabel firstLogo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private competitionsys.gui.components.MatchSchedulePanel matchSchedulePanel;
-    private javax.swing.JLabel modeLabel;
     private javax.swing.JButton nextButton;
     private javax.swing.JLabel nextMatchInfo;
     private javax.swing.JLabel nextMatchLabel;
     private javax.swing.JLabel nextMatchNumber;
     private javax.swing.JPanel nextMatchPanel;
     private javax.swing.JEditorPane notes;
-    private javax.swing.JLabel notesLabel;
     private javax.swing.JScrollPane notesScrollPane;
-    private javax.swing.JButton openSetupButton;
     private javax.swing.JButton previousButton;
     // End of variables declaration//GEN-END:variables
 

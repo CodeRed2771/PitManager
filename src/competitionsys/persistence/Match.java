@@ -21,15 +21,15 @@ public class Match implements Serializable {
     
     private Battery battery;
 
-    public Match(int matchNumber, int blueStation1, int blueStation2, int blueStation3, int redStation1, int redStation2, int redStation3, String matchTime, Battery battery) {
+    public Match(int matchNumber, int redStation1, int redStation2, int redStation3, int blueStation1, int blueStation2, int blueStation3, String matchTime, Battery battery) {
         this.matchNumber = matchNumber;
         this.matchTime = matchTime;
-        this.blueStation1 = blueStation1;
-        this.blueStation2 = blueStation2;
-        this.blueStation3 = blueStation3;
         this.redStation1 = redStation1;
         this.redStation2 = redStation2;
         this.redStation3 = redStation3;
+        this.blueStation1 = blueStation1;
+        this.blueStation2 = blueStation2;
+        this.blueStation3 = blueStation3;
         this.battery = battery;
     }
 

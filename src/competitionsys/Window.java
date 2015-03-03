@@ -1,6 +1,7 @@
 package competitionsys;
 
-import competitionsys.persistence.FileIO;
+import competitionsys.persistence.startupsequence.SerializationManager;
+import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -17,14 +18,20 @@ public class Window extends javax.swing.JFrame {
         initComponents();
         this.setLocation(0, 0);
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-        
+
         setupCloseListener();
     }
 
-    public void initCards() {
-        mainCard.init();
+    public void startup() {
+        startupCard.startup(this);
     }
     
+    public void switchToMain() {
+        mainCard.init();
+        CardLayout cl = (CardLayout) (getContentPane().getLayout());
+        cl.show(getContentPane(), "main");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,31 +41,18 @@ public class Window extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cardPanel = new javax.swing.JPanel();
+        startupCard = new competitionsys.gui.cards.startup.MainStartupCard();
         mainCard = new competitionsys.gui.cards.MainHolder();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Pit Manager");
         setBackground(new java.awt.Color(41, 41, 41));
         setMinimumSize(new java.awt.Dimension(1150, 750));
+        getContentPane().setLayout(new java.awt.CardLayout());
 
-        cardPanel.setBackground(new java.awt.Color(0, 0, 0));
-        cardPanel.setLayout(new java.awt.CardLayout());
-
-        mainCard.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        mainCard.setMinimumSize(new java.awt.Dimension(840, 525));
-        cardPanel.add(mainCard, "main");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        startupCard.setForeground(new java.awt.Color(254, 254, 254));
+        getContentPane().add(startupCard, "card2");
+        getContentPane().add(mainCard, "main");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -70,8 +64,8 @@ public class Window extends javax.swing.JFrame {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 int close = JOptionPane.showConfirmDialog(gui, "Are you sure you want to close?", "Confirm Close", JOptionPane.YES_NO_OPTION);
                 if (close == 0) {
-                    
-                    FileIO.writeMemory("pitmanager");
+                    mainCard.close();
+                    SerializationManager.writeMemory("pitmanager");
                     System.exit(0);
                 }
             }
@@ -83,8 +77,8 @@ public class Window extends javax.swing.JFrame {
         }.init(this));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel cardPanel;
     private competitionsys.gui.cards.MainHolder mainCard;
+    private competitionsys.gui.cards.startup.MainStartupCard startupCard;
     // End of variables declaration//GEN-END:variables
 
 }

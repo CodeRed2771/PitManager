@@ -91,11 +91,30 @@ public class MatchScheduleRow extends javax.swing.JPanel {
             battery.setForeground(Color.BLACK);
             time.setForeground(Color.BLACK);
         } else {
-            setBackground(new Color(21, 21, 21));
+            setBackground(new Color(20, 20, 20));
             matchNumber.setForeground(Color.WHITE);
             battery.setForeground(Color.WHITE);
             time.setForeground(Color.WHITE);
         }
+    }
+    
+    public MatchScheduleRow setLabelRow() {
+        red1.setText("Red 1");
+        red2.setText("Red 2");
+        red3.setText("Red 3");
+        blue1.setText("Blue 1");
+        blue2.setText("Blue 2");
+        blue3.setText("Blue 3");
+        time.setText("Time");
+        battery.setText("Batt.");
+        matchNumber.setText("#");
+        red1.setBackground(new Color(20, 20, 20));
+        red2.setBackground(new Color(20, 20, 20));
+        red3.setBackground(new Color(20, 20, 20));
+        blue1.setBackground(new Color(20, 20, 20));
+        blue2.setBackground(new Color(20, 20, 20));
+        blue3.setBackground(new Color(20, 20, 20));
+        return this;
     }
 
     /**
@@ -226,8 +245,7 @@ public class MatchScheduleRow extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(battery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

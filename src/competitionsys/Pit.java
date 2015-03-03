@@ -1,12 +1,10 @@
 package competitionsys;
 
-import competitionsys.persistence.StartupSequence;
-
 /**
  *
  * @author Michael
  */
-public class pit {
+public class Pit {
 
     /**
      * @param args the command line arguments
@@ -29,14 +27,12 @@ public class pit {
         }
         //</editor-fold>
         
-        StartupSequence.loadInfo();
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 Window window = new Window();
-                window.initCards();
                 window.setVisible(true);
+                window.startup();
             }
         });
     }

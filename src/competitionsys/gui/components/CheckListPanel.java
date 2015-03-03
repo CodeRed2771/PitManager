@@ -1,18 +1,32 @@
 package competitionsys.gui.components;
 
+import javax.swing.JCheckBox;
+
 /**
  *
  * @author Michael
  */
 public class CheckListPanel extends javax.swing.JPanel {
 
+    private JCheckBox[] checkboxes;
+    
     /** Creates new form CheckListPanel */
     public CheckListPanel() {
         initComponents();
+        checkboxes = new JCheckBox[7];
+        checkboxes[0] = jCheckBox1;
+        checkboxes[1] = jCheckBox2;
+        checkboxes[2] = jCheckBox3;
+        checkboxes[3] = jCheckBox4;
+        checkboxes[4] = jCheckBox5;
+        checkboxes[5] = jCheckBox6;
+        checkboxes[6] = jCheckBox7;
     }
 
     private void reset() {
-        // call each JCheckBox.setSelected(false) here.
+        for (JCheckBox box : checkboxes) {
+            box.setSelected(false);
+        }
     }
     
     
@@ -59,11 +73,13 @@ public class CheckListPanel extends javax.swing.JPanel {
 
         jCheckBox1.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.setText("Robot has a charged battery");
+        jCheckBox1.setFocusable(false);
 
         resetButton.setBackground(new java.awt.Color(20, 20, 20));
         resetButton.setForeground(new java.awt.Color(255, 255, 255));
         resetButton.setText("RESET");
+        resetButton.setFocusable(false);
         resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetButtonActionPerformed(evt);
@@ -72,107 +88,153 @@ public class CheckListPanel extends javax.swing.JPanel {
 
         jCheckBox2.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("jCheckBox1");
+        jCheckBox2.setText("Robot is in transport configuration");
+        jCheckBox2.setFocusable(false);
 
         jCheckBox3.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox3.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox3.setText("jCheckBox1");
+        jCheckBox3.setText("All springs for arms are attached");
+        jCheckBox3.setFocusable(false);
 
         jCheckBox4.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox4.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox4.setText("jCheckBox1");
+        jCheckBox4.setText("Extender string is spooled properly");
+        jCheckBox4.setFocusable(false);
 
         jCheckBox5.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox5.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox5.setText("jCheckBox1");
+        jCheckBox5.setText("Controls box is completely plugged in");
+        jCheckBox5.setFocusable(false);
 
         jCheckBox6.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox6.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox6.setText("jCheckBox1");
+        jCheckBox6.setText("Drive Team has bolts for arms");
+        jCheckBox6.setFocusable(false);
 
         jCheckBox7.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox7.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setText("jCheckBox1");
+        jCheckBox7.setText("Driver Station is charged");
+        jCheckBox7.setFocusable(false);
 
         jCheckBox8.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox8.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox8.setText("jCheckBox1");
+        jCheckBox8.setText("Reserved");
+        jCheckBox8.setEnabled(false);
+        jCheckBox8.setFocusable(false);
 
         jCheckBox9.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox9.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox9.setText("jCheckBox1");
+        jCheckBox9.setText("Reserved");
+        jCheckBox9.setEnabled(false);
+        jCheckBox9.setFocusable(false);
 
         jCheckBox10.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox10.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox10.setText("jCheckBox1");
+        jCheckBox10.setText("Reserved");
+        jCheckBox10.setEnabled(false);
+        jCheckBox10.setFocusable(false);
 
         jCheckBox11.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox11.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox11.setText("jCheckBox1");
+        jCheckBox11.setText("Reserved");
+        jCheckBox11.setEnabled(false);
+        jCheckBox11.setFocusable(false);
 
         jCheckBox12.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox12.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox12.setText("jCheckBox1");
+        jCheckBox12.setText("Reserved");
+        jCheckBox12.setEnabled(false);
+        jCheckBox12.setFocusable(false);
 
         jCheckBox13.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox13.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox13.setText("jCheckBox1");
+        jCheckBox13.setText("Reserved");
+        jCheckBox13.setEnabled(false);
+        jCheckBox13.setFocusable(false);
 
         jCheckBox14.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox14.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox14.setText("jCheckBox1");
+        jCheckBox14.setText("Reserved");
+        jCheckBox14.setEnabled(false);
+        jCheckBox14.setFocusable(false);
 
         jCheckBox15.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox15.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox15.setText("jCheckBox1");
+        jCheckBox15.setText("Reserved");
+        jCheckBox15.setEnabled(false);
+        jCheckBox15.setFocusable(false);
 
         jCheckBox16.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox16.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox16.setText("jCheckBox1");
+        jCheckBox16.setText("Reserved");
+        jCheckBox16.setEnabled(false);
+        jCheckBox16.setFocusable(false);
 
         jCheckBox17.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox17.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox17.setText("jCheckBox1");
+        jCheckBox17.setText("Reserved");
+        jCheckBox17.setEnabled(false);
+        jCheckBox17.setFocusable(false);
 
         jCheckBox18.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox18.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox18.setText("jCheckBox1");
+        jCheckBox18.setText("Reserved");
+        jCheckBox18.setEnabled(false);
+        jCheckBox18.setFocusable(false);
 
         jCheckBox19.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox19.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox19.setText("jCheckBox1");
+        jCheckBox19.setText("Reserved");
+        jCheckBox19.setEnabled(false);
+        jCheckBox19.setFocusable(false);
 
         jCheckBox20.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox20.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox20.setText("jCheckBox1");
+        jCheckBox20.setText("Reserved");
+        jCheckBox20.setEnabled(false);
+        jCheckBox20.setFocusable(false);
 
         jCheckBox21.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox21.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox21.setText("jCheckBox1");
+        jCheckBox21.setText("Reserved");
+        jCheckBox21.setEnabled(false);
+        jCheckBox21.setFocusable(false);
 
         jCheckBox22.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox22.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox22.setText("jCheckBox1");
+        jCheckBox22.setText("Reserved");
+        jCheckBox22.setEnabled(false);
+        jCheckBox22.setFocusable(false);
 
         jCheckBox23.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox23.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox23.setText("jCheckBox1");
+        jCheckBox23.setText("Reserved");
+        jCheckBox23.setEnabled(false);
+        jCheckBox23.setFocusable(false);
 
         jCheckBox24.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox24.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox24.setText("jCheckBox1");
+        jCheckBox24.setText("Reserved");
+        jCheckBox24.setEnabled(false);
+        jCheckBox24.setFocusable(false);
 
         jCheckBox25.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox25.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox25.setText("jCheckBox1");
+        jCheckBox25.setText("Reserved");
+        jCheckBox25.setEnabled(false);
+        jCheckBox25.setFocusable(false);
 
         jCheckBox26.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox26.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox26.setText("jCheckBox1");
+        jCheckBox26.setText("Reserved");
+        jCheckBox26.setEnabled(false);
+        jCheckBox26.setFocusable(false);
 
         jCheckBox27.setBackground(new java.awt.Color(20, 20, 20));
         jCheckBox27.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox27.setText("jCheckBox1");
+        jCheckBox27.setText("Reserved");
+        jCheckBox27.setEnabled(false);
+        jCheckBox27.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -213,7 +275,7 @@ public class CheckListPanel extends javax.swing.JPanel {
                             .addComponent(jCheckBox22)
                             .addComponent(jCheckBox26)
                             .addComponent(jCheckBox27))
-                        .addGap(0, 245, Short.MAX_VALUE)))
+                        .addGap(0, 123, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
